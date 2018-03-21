@@ -1,0 +1,7 @@
+<h1>Players</h1>
+<% @players.each do |player| %>
+  Turn <%= player.turn %>: <%= player.name %>
+  <br>
+<% end %>
+<hr>
+<%= link_to 'Create New Player', new_player_path %>

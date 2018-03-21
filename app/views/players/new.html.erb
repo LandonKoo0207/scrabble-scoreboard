@@ -1,0 +1,9 @@
+<h1>Create New Player</h1>
+<%= form_for @player do |f| %>
+  Name: <%= f.text_field :name %>
+  <br>
+  Turn: <%= f.number_field(:turn, in: 1..4) %> (1 .. 4)
+  <br>
+  <%= f.submit %>
+<% end %>
+<%= link_to 'Home', root_path %>
