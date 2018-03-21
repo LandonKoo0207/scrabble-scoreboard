@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  word: MyString
+  double_letter: 1
+  triple_letter: 
+  double_word: 
+  triple_word: 
+  score: 1
+
+two:
+  word: MyString
+  double_letter: 1
+  triple_letter: 
+  double_word: 
+  triple_word: 
+  score: 1
