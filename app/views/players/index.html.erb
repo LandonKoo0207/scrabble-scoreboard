@@ -1,6 +1,6 @@
 <h1>Players</h1>
 <% @players.each do |player| %>
-  Turn <%= player.turn %>: <%= player.name %>
+  Turn <%= player.turn %>: <%= player.name %>  <%= link_to 'Enter Word', new_player_word_path(player) %>
   <br>
 <% end %>
 <hr>

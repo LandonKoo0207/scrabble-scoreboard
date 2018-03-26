@@ -10,6 +10,38 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
  */
+@import "bootstrap";
+
+div.word-char
+{
+	width: 2vw;
+	margin-right: 1vw;
+}
+
+input.word-char
+{
+	width: 3vw;
+}
+
+.double-letter-checkbox
+{
+	width: 2.5vw;
+	margin-left: 0.5vw;
+}
+
+.triple-letter-checkbox
+{
+	width: 2.5vw;
+	margin-left: 0.5vw;
+}
+
+.double-word-check
+{
+	width: 12vw;
+}
+
+.triple-word-check
+{
+	width: 12vw;
+}
