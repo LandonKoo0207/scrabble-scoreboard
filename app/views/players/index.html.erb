@@ -1,7 +1,37 @@
 <h1>Players</h1>
+<% if @players.count < 2 %>
+  There must be at least 2 players. Create more players.
+<% elsif @players.count == 2 %>
+  <% player_scoreboard_width = "col-sm-6" %>
+<% elsif @players.count == 3 %>
+  <% player_scoreboard_width = "3-players-scoreboard" %>
+<% else %>
+  <% player_scoreboard_width = "4-players-scoreboard" %>
+<% end %>
+<div class="row">
 <% @players.each do |player| %>
-  Turn <%= player.turn %>: <%= player.name %>  <%= link_to 'Enter Word', new_player_word_path(player) %>
+  <div class="col-sm-3">Turn 
+    <%= player.turn %>: <%= player.name %>
+  </div>
+  <div class="col-sm-3">
+  <%= link_to 'Enter Word', new_player_word_path(player) %>
+  </div>
+<% end %>
+</div>
+
+<div class="row">
+<div class="<%= player_scoreboard_width %>">
+<% @players.first.words.each do |word| %>
+  <%= word.word %> <%= word.double_letter.count %>, <%= word.score %>
   <br>
 <% end %>
+</div>
+<div class="<%= player_scoreboard_width %>">
+<% @players.second.words.each do |word| %>
+  <%= word.word %> <%= word.score %>
+  <br>
+<% end %>
+</div>
+</div>
 <hr>
 <%= link_to 'Create New Player', new_player_path %>
