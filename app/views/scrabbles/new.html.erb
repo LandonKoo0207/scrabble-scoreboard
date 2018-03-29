@@ -1,0 +1,7 @@
+<h1>Welcome to Scrabble Scoreboard!</h1>
+<%= form_for @scrabble do |f| %>
+  <%= f.label :num_of_players, "How many players?(2-4): " %>
+  <%= f.number_field :num_of_players %>
+  <br>
+  <%= f.submit %>
+<% end %>

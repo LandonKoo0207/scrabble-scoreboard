@@ -1,9 +1,9 @@
-<h1>Enter New Word for <%= @player.name %></h1>
+<h1>Enter New Word</h1>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 <div class="container">
-<%= form_for ([@scrabble, @player, @player.words.build]) do |f| %>
+<%= form_for [@player, @player.words.build] do |f| %>
   <div class="word-input-letters">
   <% for id in 1..15 do %>
     <input type="text" id="<%= id %>" class="word-char" pattern: "[A-Za-z]" maxlength="1">
@@ -34,6 +34,7 @@
   <%= f.submit %>
 <% end %>
 </div>
+<%= link_to 'Home', root_path %>
 <script>
 var word = "";
 $("input").keyup(function () {

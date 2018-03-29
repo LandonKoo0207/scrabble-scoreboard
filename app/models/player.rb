@@ -3,4 +3,5 @@ class Player < ApplicationRecord
   validates :turn, inclusion: { in: 1..4 }
 
   has_many :words
+  belongs_to :scrabble
 end

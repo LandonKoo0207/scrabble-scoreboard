@@ -1,0 +1,12 @@
+<h1>Scrabbles!</h1>
+<div>
+  <% @scrabbles.each do |scrabble| %>
+    <div>
+      <%= link_to "Game #{scrabble.id}:", scrabble_path(scrabble) %>
+      Number of players: <%= scrabble.num_of_players %>
+    </div>
+  <% end %>
+  <div>
+    <%= link_to 'Start New Scabble', new_scrabble_path %>
+  </div>
+</div>

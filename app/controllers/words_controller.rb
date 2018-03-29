@@ -10,7 +10,16 @@ class WordsController < ApplicationController
 
     if @word.save
       flash[:success] = "New Word has been entered successfully."
-      redirect_to root_path
+      s = Scrabble.find(@player.scrabble_id)
+      puts "#{@player.id} #{Player.last.id}"
+      if @player == Player.last
+        s[:current_player] = 1
+      else
+        s[:current_player] += 1
+      end
+      s.save
+      puts "words save #{s}"
+      redirect_to scrabble_path(@player.scrabble_id)
     else
       flash[:warning] = "New word couldn't be created. Try again."
       render :new
@@ -26,6 +35,8 @@ class WordsController < ApplicationController
         s += score[char.to_sym] * 2
       elsif @word[:triple_letter].include? i+1
         s += score[char.to_sym] * 3
+      else
+        s += score[char.to_sym]
       end
     end
 

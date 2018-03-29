@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  resources :players do
-    resources :words
+  resources :scrabbles do
+    resources :players do
+      resources :words
+    end
   end
 
-  root 'players#index'
+  root 'scrabbles#index'
 end
