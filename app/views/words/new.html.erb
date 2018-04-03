@@ -4,7 +4,7 @@
 
 <div class="container">
 <%= form_for ([@scrabble, @player, @player.words.build]) do |f| %>
-  <div class="row">
+  <div class="form-group row">
     <div class="new-word-input-label">
     </div>
     <div class="word-input-letters">
@@ -14,23 +14,23 @@
     </div>
   </div>
   
-  <div class="row">
+  <div class="form-group row">
     <div class="new-word-input-label">
       Double Letter:
     </div>
     <div class="double-letter-check">
     <% for id in 1..15 do %>
-      <%= f.check_box :double_letter, { multiple: true, class: "double-letter-checkbox" }, id, nil %>
+      <%= f.check_box :double_letter, { multiple: true, id: "double-letter-checkbox" }, id, nil %>
     <% end %>
     </div>
   </div>
-  <div class="row">
+  <div class="form-group row">
     <div class="new-word-input-label">
       Triple Letter:
     </div>
     <div class="triple-letter-check">
     <% for id in 1..15 do %>
-      <%= f.check_box :triple_letter, { multiple: true, class: "triple-letter-checkbox" }, id, nil %>
+      <%= f.check_box :triple_letter, { multiple: true, id: "triple-letter-checkbox" }, id, nil %>
     <% end %>
     </div>
   </div>
@@ -48,7 +48,7 @@
     </div>
   </div>
   <div class="new-word-submit-btn">
-    <%= f.submit id:"new-word-submit" %>
+    <%= f.submit class:"btn btn-primary", id:"new-word-submit" %>
   </div>
 <% end %>
 </div>

@@ -19,29 +19,40 @@ div.word-char
 	margin-right: 1vw;
 }
 
+div.new-word-input-label
+{
+	width: 12vw;
+}
+
 input.word-char
 {
 	width: 3vw;
 }
 
-.double-letter-checkbox
+#double-letter-checkbox
 {
 	width: 2.5vw;
 	margin-left: 0.5vw;
 }
 
-.triple-letter-checkbox
+#triple-letter-checkbox
 {
 	width: 2.5vw;
 	margin-left: 0.5vw;
 }
 
-.double-word-check
+#double-word-check
 {
 	width: 12vw;
 }
 
-.triple-word-check
+#triple-word-check
 {
 	width: 12vw;
+}
+
+div.new-word-submit-btn
+{
+	margin-top: 1vw;
+	margin-left: 30vw;
 }
