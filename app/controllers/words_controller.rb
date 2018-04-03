@@ -11,14 +11,13 @@ class WordsController < ApplicationController
     if @word.save
       flash[:success] = "New Word has been entered successfully."
       s = Scrabble.find(@player.scrabble_id)
-      puts "#{@player.id} #{Player.last.id}"
-      if @player == Player.last
-        s[:current_player] = 1
+      if @player == s.players.last
+        s[:current_player] = s.players.first.id
+        s[:current_turn] += 1
       else
         s[:current_player] += 1
       end
       s.save
-      puts "words save #{s}"
       redirect_to scrabble_path(@player.scrabble_id)
     else
       flash[:warning] = "New word couldn't be created. Try again."

@@ -2,11 +2,11 @@ class PlayersController < ApplicationController
   before_action :set_scrabble
 
   def index
-    @players = Player.order(:turn).all
+    @players = @scrabble.players.order(:turn)
   end
 
   def create
-    @players = Player.all
+    @players = @scrabble.players
     @player = @scrabble.players.create(player_params)
     
     # When the first player created, make it the initial player for scrabble
