@@ -1,5 +1,12 @@
 <h1>Scrabble Scoreboard</h1>
 
+<div>
+  <h3>Remaining Letters</h3>
+  <% @scrabble.remaining_letters.each do |letter, count| %>
+    <strong><%= letter %></strong>: <%= count %> 
+  <% end %>
+</div>
+
 <% if @scrabble.num_of_players < 2 %>
   There must be at least 2 players. Create more players.
 <% elsif @scrabble.num_of_players == 2 %>

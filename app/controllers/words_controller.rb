@@ -2,26 +2,34 @@ class WordsController < ApplicationController
   before_action :set_player
 
   def create
-    @word = @player.words.create(word_params)
+    puts "Begin: #{Scrabble.first.remaining_letters}"
+    if word_possible
+      @word = @player.words.create(word_params)
 
-    if @word.valid?
-      calculate_score(@word[:word])
-    end
-
-    if @word.save
-      flash[:success] = "New Word has been entered successfully."
-      s = Scrabble.find(@player.scrabble_id)
-      if @player == s.players.last
-        s[:current_player] = s.players.first.id
-        s[:current_turn] += 1
-      else
-        s[:current_player] += 1
+      puts "truetrue1"
+      if @word.valid?
+        calculate_score(@word[:word])
       end
-      s.save
-      redirect_to scrabble_path(@player.scrabble_id)
+
+      if @word.save
+        flash[:success] = "New Word has been entered successfully."
+        s = Scrabble.find(@player.scrabble_id)
+        if @player == s.players.last
+          s[:current_player] = s.players.first.id
+          s[:current_turn] += 1
+        else
+          s[:current_player] += 1
+        end
+        s.save
+        redirect_to scrabble_path(@player.scrabble_id)
+      else
+        flash[:warning] = "New word couldn't be created. Try again."
+        render :new
+      end
     else
-      flash[:warning] = "New word couldn't be created. Try again."
-      render :new
+      puts "false1"
+      flash[:warning] = "There are not enough letters remaining to make up the word. Try again."
+      redirect_to scrabble_path(@player.scrabble_id)
     end
   end
 
@@ -48,6 +56,23 @@ class WordsController < ApplicationController
     end
 
     @word[:score] = s
+  end
+
+  def word_possible
+    word_in_hash = Hash[params[:word][:word].split('').group_by{ |c| c }.map{ |key, value| [key, value.size] }]
+    scrabble = Scrabble.find(@player.scrabble_id)
+    puts "#{scrabble.remaining_letters}"
+    word_in_hash.each do |letter, count|
+      puts "#{count}, #{scrabble.remaining_letters[letter.upcase.to_sym]}"
+      if count > scrabble.remaining_letters[letter.upcase.to_sym]
+        return false
+      else
+        puts "#{scrabble.remaining_letters[letter.upcase.to_sym]} - #{count}?"
+        scrabble.remaining_letters[letter.upcase.to_sym] -= count
+      end
+    end
+    scrabble.save
+    true
   end
 
   private

@@ -1,6 +1,8 @@
 class Scrabble < ApplicationRecord
   has_many :players, dependent: :destroy
 
+  serialize :remaining_letters, Hash
+
   after_initialize :set_defaults
 
   def set_defaults
