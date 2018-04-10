@@ -1,11 +1,19 @@
-<h1>Scrabble Scoreboard</h1>
-
-<div>
-  <h3>Remaining Letters</h3>
-  <% @scrabble.remaining_letters.each do |letter, count| %>
-    <strong><%= letter %></strong>: <%= count %> 
-  <% end %>
-</div>
+<ul class="list-group">
+  <li class="list-group-item" id="scrabbles">
+    <div class="page-title">
+      Scrabble Scoreboard
+    </div>
+  </li>
+  <li class="list-group-item" id="scrabbles">
+    <div class="remaining-letters-label">
+      Remaining Letters
+    </div>
+    <div class="remaining-letters">
+      <% @scrabble.remaining_letters.each do |letter, count| %>
+        <strong><%= letter %></strong>: <%= count %> 
+      <% end %>
+    </div>
+  </li>
 
 <% if @scrabble.num_of_players < 2 %>
   There must be at least 2 players. Create more players.
@@ -16,9 +24,11 @@
 <% else %>
   <% player_scoreboard_width = "col-sm-3" %>
 <% end %>
-
+<li class="list-group-item" id="scrabbles">
 <%= render template: 'words/new' %>
+</li>
 
+<li class="list-group-item" id="scrabbles">
 <div>
   <h2>Leaderboard</h2>
   <% @scrabble.players.sort_by { |player| player.words.pluck(:score).sum }.reverse.each_with_index do |player, index| %>
@@ -27,9 +37,8 @@
     </div>
   <% end %>
 </div>
-
-<hr>
-
+</li>
+<li class="list-group-item" id="scrabbles">
 <div class="row">
 <% @scrabble.players.each do |player| %>
   <div class="<%= player_scoreboard_width %>">Turn 
@@ -64,5 +73,7 @@
 <% end %>
 </div>
 
-<hr>
+</ul>
+<li class="list-group-item" id="scrabble-bottom-nav">
 <%= link_to 'Home', root_path %>
+</li>

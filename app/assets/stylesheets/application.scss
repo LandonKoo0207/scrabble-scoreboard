@@ -40,7 +40,10 @@ div.word-char
 
 div.new-word-input-label
 {
-	width: 12vw;
+    font-size: 0.8em;
+    margin-right: 1em;
+    margin-top: 0.5em;
+	width: 13vw;
 }
 
 input.word-char
@@ -118,6 +121,17 @@ input.word-char
     background-color: rgba(206, 230, 220, .65);
 }
 
+#scrabble-bottom-nav
+{
+    font-size: 18px;
+
+    text-align: center;
+
+    background-color: rgba(206, 230, 220, .65);
+
+    font-color: #f3f3f3;
+}
+
 div.new-word-submit-btn
 {
 	margin-top: 1vw;
@@ -184,6 +198,17 @@ div.new-scrabble-description
     margin-left: 5%;
 }
 
+div.remaining-letters-label
+{
+    font-size: 1em;
+    margin-bottom: 1vw;
+}
+
+div.remaining-letters
+{
+    font-size: 0.9em;
+}
+
 div.nav-link,
 div.nav-link > a
 {
@@ -193,6 +218,14 @@ div.nav-link > a
     text-decoration: underline;
 
     color: #427a63;
+}
+
+div.enter-new-word-title
+{
+    margin-bottom: 2vw;
+    font-size: 1.5em;
+    font-weight: 700;
+    font-style: italic;
 }
 
 input[type=submit]#bottom-btn

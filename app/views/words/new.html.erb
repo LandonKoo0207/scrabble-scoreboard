@@ -1,8 +1,8 @@
-<h2>Turn <%= @scrabble.current_turn %>: Enter a New Word, <%= @player.name %></h2>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 <div class="container">
+  <div class="enter-new-word-title">
+    Turn <%= @scrabble.current_turn %>: Enter a New Word, <%= @player.name %>
+  </div>
 <%= form_for ([@scrabble, @player, @player.words.build]) do |f| %>
   <div class="form-group row">
     <div class="new-word-input-label">
@@ -53,7 +53,7 @@
   </div>
 <% end %>
 </div>
-<hr>
+
 <script>
 var word = "";
 $("input").keyup(function () {
