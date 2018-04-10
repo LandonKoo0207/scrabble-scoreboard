@@ -110,6 +110,14 @@ input.word-char
 	letter-spacing: 1.55em;
 }
 
+#create-scrabble
+{
+    text-align: center;
+
+    color: #02bfa1;
+    background-color: rgba(206, 230, 220, .65);
+}
+
 div.new-word-submit-btn
 {
 	margin-top: 1vw;
@@ -150,20 +158,21 @@ div.page-title
     font-size: 40px;
     font-weight: 450;
 
-    margin-bottom: 10px;
+    margin-bottom: 3vw;
 
     text-align: center;
 
     color: #588c76;
 }
 
-div.new-scrabble-title
+div.new-scrabble-num-of-players
 {
-    font-size: 22px;
+    font-size: 1.8em;
     font-weight: 350;
-
+    
     margin-right: 5%;
     margin-left: 5%;
+    text-align: center;
 }
 
 div.new-scrabble-description
@@ -173,4 +182,108 @@ div.new-scrabble-description
     margin-top: 3%;
     margin-right: 5%;
     margin-left: 5%;
+}
+
+div.nav-link,
+div.nav-link > a
+{
+    font-size: 19px;
+
+    text-align: center;
+    text-decoration: underline;
+
+    color: #427a63;
+}
+
+input[type=submit]#bottom-btn
+{
+    font-size: 0.8em;
+
+    width: 20vw;
+    padding: 1% 1%;
+
+    color: #fff;
+    border-radius: 10px;
+    background-color: #427a63;
+}
+
+input[type=number]#new-num-of-players-text
+{
+	margin-top: 1vw;
+	margin-bottom: 1vw;
+	text-align: center;
+	font-size: 0.8em;
+    width: 10vw;
+    padding: 0.2vw 0.2vw;
+
+    color: #427a63;
+    border: 1px solid #74b69a;
+    border-radius: 10px;
+    background-color: #a4e1c7;
+}
+
+input[type=text]#create-new-player-name-input
+{
+    margin-bottom: 1vw;
+    text-align: left;
+    font-size: 0.8em;
+    width: 30vw;
+    padding: 0.5vw 0.5vw;
+
+    color: #427a63;
+    border: 1px solid #74b69a;
+    border-radius: 10px;
+    background-color: #a4e1c7;
+}
+
+input[type=number]#create-new-player-turn-input
+{
+    margin-bottom: 1vw;
+    text-align: center;
+    font-size: 0.8em;
+    width: 6vw;
+    padding: 0.5vw 0.5vw;
+
+    color: #427a63;
+    border: 1px solid #74b69a;
+    border-radius: 10px;
+    background-color: #a4e1c7;
+}
+
+div#create-new-player-name-label
+{
+    font-size: 1.1em;
+    font-weight: 350;
+    
+    margin-left: 20vw;
+    margin-right: 1.7vw;
+    text-align: left;
+}
+
+div#create-new-player-name
+{
+    font-size: 1em;
+    font-weight: 350;
+    
+    text-align: left;
+}
+
+div#create-new-player-turn-label
+{
+    font-size: 1.1em;
+    font-weight: 350;
+    
+    margin-left: 20vw;
+    margin-right: 1.7vw;
+    margin-top: 1vw;
+    text-align: left;
+}
+
+div#create-new-player-turn
+{
+    font-size: 1em;
+    font-weight: 350;
+
+    margin-top: 1vw;
+    text-align: left;
 }

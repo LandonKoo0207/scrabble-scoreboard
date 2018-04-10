@@ -3,6 +3,8 @@ class Scrabble < ApplicationRecord
 
   serialize :remaining_letters, Hash
 
+  validates :num_of_players, presence: true, inclusion: { in: 2..4, message: "The number of players must be between 2 and 4." }
+
   after_initialize :set_defaults
 
   default_scope { order(:id) }

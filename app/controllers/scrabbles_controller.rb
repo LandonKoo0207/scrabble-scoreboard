@@ -10,13 +10,15 @@ class ScrabblesController < ApplicationController
   end
 
   def create
-    @scrabble = Scrabble.create!(scrabble_params)
+    @scrabble = Scrabble.create(scrabble_params)
 
     if @scrabble.save
       flash[:success] = "Let's play Scabble!"
       redirect_to new_scrabble_player_path(@scrabble.id)
     else
-      flash[:success] = "New Scrabble can't be created. Try again."
+      @scrabble.errors.each do |name, msg|
+        flash[:warning] = "#{msg}"
+      end
       render :new
     end
   end

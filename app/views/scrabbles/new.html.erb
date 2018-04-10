@@ -1,15 +1,15 @@
 <ul class="list-group">
-<h1>Welcome to Scrabble Scoreboard!</h1>
 <%= form_for @scrabble do |f| %>
-  <li class="list-group-item" id="todo-list">
-    <div class="page-title">
-      Let's Create a New Scrabble!
-    </div>
+  <li class="list-group-item" id="scrabble">
     <div class="new-scrabble-num-of-players">
-      <%= f.label :num_of_players, "How many players?(2-4): ", autofocus: true %>
+      <%= f.label :num_of_players, "How many players? (2-4): ", autofocus: true %>
+      <div> 
+        <%= f.number_field :num_of_players, id: "new-num-of-players-text", autofocus: true %>
+      </div>
     </div>
-  <%= f.number_field :num_of_players %>
-  <%= f.submit %>
+  </li>
+  <li class="list-group-item" id="create-scrabble">
+  <%= f.submit id: "bottom-btn" %>
   </li>
 <% end %>
 </ul>

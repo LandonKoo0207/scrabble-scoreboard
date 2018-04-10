@@ -1,10 +1,32 @@
-<h1>Create New Player</h1>
+<ul class="list-group">
 
 <%= form_for ([@scrabble, @scrabble.players.build]) do |f| %>
-  Name: <%= f.text_field :name, autofocus: true %>
-  <br>
-  Turn: <%= f.number_field(:turn, in: 1..4) %> (1 .. 4)
-  <br>
-  <%= f.submit %>
+  <li class="list-group-item" id="scrabble">
+    <div class="page-title">
+      Create New Player
+    </div>
+    <div class="row">
+      <div class="col-sm-1" id="create-new-player-name-label">
+        Name:
+      </div>
+      <div class="col-sm-3" id="create-new-player-name">
+        <%= f.text_field :name, autofocus: true, id:"create-new-player-name-input" %>
+      </div>
+    </div>
+    <div class="row">
+    <div class="col-sm-1" id="create-new-player-turn-label">
+      Turn:
+    </div>
+    <div class="col-sm-3" id="create-new-player-turn">
+      <%= f.number_field :turn, in: 1..4, id:"create-new-player-turn-input" %> (1 .. 4)
+    </div>
+    </div>
+  </li>
+  <li class="list-group-item" id="create-scrabble">
+  <%= f.submit id: "bottom-btn" %>
+  </li>
 <% end %>
+</ul>
+<div class="nav-link">
 <%= link_to 'Home', root_path %>
+</div>
