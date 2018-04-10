@@ -5,6 +5,7 @@ class Word < ApplicationRecord
   validates :word, presence: true, length: { minimum: 2, message: "Word must be at least 2 characters long" }, unless: :skip_validations
 
   after_initialize :set_defaults
+  before_save :calculate_score
 
   default_scope { order(:id) }
 

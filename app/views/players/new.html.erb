@@ -1,7 +1,7 @@
 <h1>Create New Player</h1>
 
 <%= form_for ([@scrabble, @scrabble.players.build]) do |f| %>
-  Name: <%= f.text_field :name %>
+  Name: <%= f.text_field :name, autofocus: true %>
   <br>
   Turn: <%= f.number_field(:turn, in: 1..4) %> (1 .. 4)
   <br>

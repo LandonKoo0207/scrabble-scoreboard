@@ -1,12 +1,15 @@
 <h1>Scrabbles!</h1>
-<div>
+<ul class="list-group">
   <% @scrabbles.each do |scrabble| %>
-    <div>
+    <li class="list-group-item" id="scrabbles">
+    <div class="scrabble-title">
       <%= link_to "Game #{scrabble.id}:", scrabble_path(scrabble) %>
+    </div>
+    <div class="scrabble-description">
       Number of players: <%= scrabble.num_of_players %>
     </div>
   <% end %>
-  <div>
+  <li class="list-group-item" id="start-new-scrabble">
     <%= link_to 'Start New Scabble', new_scrabble_path %>
-  </div>
-</div>
+  </li>
+</ul>

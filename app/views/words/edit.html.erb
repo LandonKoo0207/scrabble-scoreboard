@@ -50,7 +50,7 @@
     </div>
   </div>
   <div class="new-word-submit-btn">
-    <%= f.submit class:"btn btn-primary", id:"new-word-submit" %>
+    <%= f.button "Update Word", class:"btn btn-primary", id:"new-word-submit", name: "old_word", value: "#{@word.word}" %>
     <%= f.button :Pass, class:"btn btn-danger", id:"new-word-submit-pass", name: "pass", value: "Pass" %>
   </div>
 <% end %>
@@ -92,6 +92,13 @@ $("form").submit(function () {
     word += $("#"+i).val();
   }
   $("#word-input").val(word);
+});
+
+$(document).ready(function () {
+  word = $("#word-input").val();
+  for (i = 0; i < word.length; i++){
+    $("#"+(i+1)).val(word[i]);
+  }
 });
 
 </script>

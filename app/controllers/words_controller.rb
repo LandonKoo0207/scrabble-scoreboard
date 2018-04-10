@@ -1,5 +1,6 @@
 class WordsController < ApplicationController
   before_action :set_player
+  before_action :set_word, only: [:update]
 
   def create
     puts "params: #{params}"
@@ -45,11 +46,26 @@ class WordsController < ApplicationController
     true
   end
 
+  def put_back_word(word)
+    word_in_hash = Hash[word.split('').group_by{ |c| c }.map{ |key, value| [key, value.size] }]
+    scrabble = Scrabble.find(@player.scrabble_id)
+    word_in_hash.each do |letter, count|
+      scrabble.remaining_letters[letter.upcase.to_sym] += count
+    end
+    scrabble.save
+  end
+
   def edit
   end
 
   def update
-
+    if word_possible
+      put_back_word(params[:old_word])
+      @word.update(word_params)
+    else
+      flash[:warning] = "There are not enough letters remaining to make up the word. Try again."
+    end
+    redirect_to scrabble_path(@player.scrabble_id)
   end
 
   private
@@ -59,5 +75,9 @@ class WordsController < ApplicationController
 
   def word_params
     params.require(:word).permit!
+  end
+
+  def set_word
+    @word = @player.words.find(params[:id])
   end
 end
