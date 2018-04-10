@@ -1,9 +1,11 @@
-<h2>Turn <%= @scrabble.current_turn %>: Enter a New Word, <%= @player.name %></h2>
+<h2>Edit Word, <%= @player.name %></h2>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
+<% @word = Word.find(params[:id]) %>
+
 <div class="container">
-<%= form_for ([@scrabble, @player, @player.words.build]) do |f| %>
+<%= form_for [Scrabble.find(@player.scrabble_id), @player, @word] do |f| %>
   <div class="form-group row">
     <div class="new-word-input-label">
     </div>

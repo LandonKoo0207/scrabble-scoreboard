@@ -38,56 +38,31 @@
 <% end %>
 </div>
 
+
 <div class="row">
-<!--
 <% @scrabble.players.each do |player| %>
   <div class="<%= player_scoreboard_width %>">
   <% player.words.each do |word| %>
+    <div class="row" id="each-word-on-show">
     <% if Word.exists? %>
-      <%= word.word %> <%= word.double_letter.count %>, <%= word.score %>
-    <% end %>
-  <br>
-  <% end %>
-<% end %>
--->
-<div class="<%= player_scoreboard_width %>">
-<% @scrabble.players.first.words.each do |word| %>
-  <% if Word.exists? %>
-    <%= word.word %> <%= word.double_letter.count %>, <%= word.score %>
-  <% end %>
-  <br>
-<% end %>
-</div>
-<div class="<%= player_scoreboard_width %>">
-<% @scrabble.players.second.words.each do |word| %>
-  <% if Word.exists? %>
-    <%= word.word %> <%= word.double_letter.count %>, <%= word.score %>
-  <% end %>
-  <br>
-<% end %>
-</div>
-
-<% if @scrabble.num_of_players >= 3 %>
-  <div class="<%= player_scoreboard_width %>">
-  <% @scrabble.players.third.words.each do |word| %>
-    <% if Word.exists? %>
-      <%= word.word %> <%= word.double_letter.count %>, <%= word.score %>
-    <% end %>
-    <br>
-  <% end %>
-  </div>
-  <% if @scrabble.num_of_players == 4 %>
-    <div class="<%= player_scoreboard_width %>">
-    <% @scrabble.players.fourth.words.each do |word| %>
-      <% if Word.exists? %>
-        <%= word.word %> <%= word.double_letter.count %>, <%= word.score %>
+      <% if word.word.length > 0%>
+        <div class="col-sm-3">
+        <%= link_to word.word.upcase, edit_scrabble_player_word_path(@scrabble.id, player.id, word.id) %>
+        </div> 
+        <div class="col-sm-3">
+        <%= word.score %>
+        </div>
+      <% else %>
+        <div class="col-sm-6">
+          PASSED (No Word Entered)
+        </div>
       <% end %>
-      <br>
     <% end %>
     </div>
   <% end %>
+  </div>
 <% end %>
-
 </div>
+
 <hr>
 <%= link_to 'Home', root_path %>
