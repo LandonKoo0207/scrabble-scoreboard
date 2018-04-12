@@ -1,61 +1,83 @@
-<h2>Edit Word, <%= @player.name %></h2>
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
-<% @word = Word.find(params[:id]) %>
+<ul class="list-group">
+  <li class="list-group-item" id="scrabbles">
+    <div class="page-title">
+      Edit Word (<%= @player.name %>, Turn <%= Scrabble.find(@player.scrabble_id).current_turn %>)
+    </div>
 
-<div class="container">
-<%= form_for [Scrabble.find(@player.scrabble_id), @player, @word] do |f| %>
-  <div class="form-group row">
-    <div class="new-word-input-label">
-    </div>
-    <div class="word-input-letters">
-    <% for id in 1..15 do %>
-      <input type="text" id="<%= id %>" class="word-char" maxlength="1" autofocus="true" style="text-transform:uppercase;">
-    <% end %>
-    </div>
-  </div>
+    <% @word = Word.find(params[:id]) %>
+
+    <div class="container">
+    <%= form_for [Scrabble.find(@player.scrabble_id), @player, @word] do |f| %>
+      <div class="form-group row">
+        <div class="new-word-input-label">
+        </div>
+        <div class="word-input-letters">
+          <div class="row">
+            <% for id in 1..15 do %>
+                <input type="text" id="<%= id %>" class="word-char" maxlength="1" autofocus="true" style="text-transform:uppercase;" pattern="[a-zA-z]" title="Only alphbet letters are allowed.">
+              
+            <% end %>
+          </div>
+        </div>
+      </div>
   
-  <div class="form-group row">
-    <div class="new-word-input-label">
-      Double Letter:
-    </div>
-    <div class="double-letter-check">
-    <% for id in 1..15 do %>
-      <%= f.check_box :double_letter, { multiple: true, id: "double-letter-checkbox" }, id, nil %>
-    <% end %>
-    </div>
-  </div>
-  <div class="form-group row">
-    <div class="new-word-input-label">
-      Triple Letter:
-    </div>
-    <div class="triple-letter-check">
-    <% for id in 1..15 do %>
-      <%= f.check_box :triple_letter, { multiple: true, id: "triple-letter-checkbox" }, id, nil %>
-    <% end %>
-    </div>
-  </div>
+      <div class="form-group row" id="each-letter-checkbox">
+        <div class="new-word-input-label">
+            Double Letter
+        </div>
+        <div class="double-letter-check">
+          <div class="row">
+            <% for id in 1..15 do %>
+            <div class="word-char-div">
+              <%= f.check_box :double_letter, { multiple: true, id: "double-letter-checkbox-#{id}", class:"double-letter-checkbox" }, id, nil %>
+              <label for="double-letter-checkbox-<%=id%>" class="double-letter-checkbox-label"></label>
+            </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row" id="each-letter-checkbox">
+        <div class="new-word-input-label">
+          Triple Letter
+        </div>
+        <div class="triple-letter-check">
+          <div class="row">
+            <% for id in 1..15 do %>
+              <div class="word-char-div">
+                <%= f.check_box :triple_letter, { multiple: true, id: "triple-letter-checkbox-#{id}", class:"triple-letter-checkbox" }, id, nil %>
+                <label for="triple-letter-checkbox-<%=id%>" class="triple-letter-checkbox-label"></label>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
 
-  <%= f.text_field :word, style:"text-transform:uppercase", id:"word-input", hidden: "true"  %>
-  <div class="row">
-    <div class="new-word-input-label">
+      <%= f.text_field :word, style:"text-transform:uppercase", id:"word-input", hidden: "true"  %>
+      <div class="row">
+        <div class="new-word-input-label">
+        </div>
+        <div class="double-word-check">
+          <%= f.label :double_word, "Double Word" %> <%= f.check_box :double_word, id: "double-word-checkbox" %>
+        </div>
+        <div class="triple-word-check">
+          <%= f.label :triple_word, "Triple Word" %> <%= f.check_box :triple_word, id: "triple-word-checkbox" %>
+        </div>
+      </div>
+      <div class="new-word-submit-btn">
+        <%= f.button "Update Word", class:"btn btn-primary", id:"new-word-submit", name: "old_word", value: "#{@word.word}" %>
+        <%= f.button :Pass, class:"btn btn-danger", id:"new-word-submit-pass", name: "pass", value: "Pass" %>
+        <%= link_to "Cancel", :back, class: "btn btn-warning" %>
+      </div>
+      <% end %>
     </div>
-    <div class="double-word-check">
-      <%= f.label :double_word, "Double Word" %> <%= f.check_box :double_word, id: "double-word-checkbox" %>
-      <span class="checkmark"></span>
-    </div>
-    <div class="triple-word-check">
-      <%= f.label :triple_word, "Triple Word" %> <%= f.check_box :triple_word, id: "triple-word-checkbox" %>
-    </div>
-  </div>
-  <div class="new-word-submit-btn">
-    <%= f.button "Update Word", class:"btn btn-primary", id:"new-word-submit", name: "old_word", value: "#{@word.word}" %>
-    <%= f.button :Pass, class:"btn btn-danger", id:"new-word-submit-pass", name: "pass", value: "Pass" %>
-  </div>
-<% end %>
+  </li>
+</ul>
+<div class="nav-link">
+<%= link_to 'Back', :back %>
 </div>
-<hr>
+
 <script>
 var word = "";
 $("input").keyup(function () {
@@ -71,6 +93,21 @@ $(".word-char").keyup(function(e) {
       if (this.id != "1") {
         $(this).prev().focus();
       }
+  }
+});
+
+$(".double-letter-checkbox").change(function () {
+  id = $(this).attr("id").replace("double", "triple")
+  if($('#'+id).is(':checked')) {
+    $('#'+id).prop('checked', false);
+  }
+});
+
+
+$(".triple-letter-checkbox").change(function () {
+  id = $(this).attr("id").replace("triple", "double")
+  if($('#'+id).is(':checked')) {
+    $('#'+id).prop('checked', false);
   }
 });
 

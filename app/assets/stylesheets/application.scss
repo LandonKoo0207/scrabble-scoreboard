@@ -34,22 +34,45 @@ body
 
 div.word-char
 {
-	width: 2vw;
-	margin-right: 1vw;
+	width: 38px;
+	margin-right: 1px;
 }
 
 div.new-word-input-label
 {
-    font-size: 0.8em;
-    margin-right: 1em;
-    margin-top: 0.5em;
-	width: 13vw;
+    font-size: 0.65em;
+    font-weight: 1000;
+    text-align: center;
+    line-height: 1.1em;
+    width: 92px;
+}
+
+div.word-input-letters
+{
+    margin-left: 2px;
 }
 
 input.word-char
 {
-	width: 3vw;
+	width: 41.5px;
+    height: 62.25px;
+    border-style: solid;
+    border-color: #427a63;
+    padding: 5.5px;
+    margin-right: 0.71vw;
 }
+
+div.double-word-check
+{
+    font-size: 0.7em;
+    margin-right: 10px;
+}
+
+div.triple-word-check
+{
+    font-size: 0.7em;
+}
+
 
 #scrabble-main
 {
@@ -65,14 +88,14 @@ input.word-char
 
 #double-letter-checkbox
 {
-	width: 2.5vw;
-	margin-left: 0.5vw;
+	width: 26px;
+	margin-left: 5px;
 }
 
 #triple-letter-checkbox
 {
-	width: 2.5vw;
-	margin-left: 0.5vw;
+	width: 26px;
+	margin-left: 5px;
 }
 
 #start-new-scrabble
@@ -90,12 +113,12 @@ input.word-char
 
 #double-word-check
 {
-	width: 12vw;
+	width: 125px;
 }
 
 #triple-word-check
 {
-	width: 12vw;
+	width: 125px;
 }
 
 #each-word-on-show
@@ -109,7 +132,7 @@ input.word-char
 	background-image: url('square-letter.jpg');
 	background-size: 1.55em;
 	padding: 0;
-	width: 40vw;
+	width: 415px;
 	letter-spacing: 1.55em;
 }
 
@@ -132,10 +155,29 @@ input.word-char
     font-color: #f3f3f3;
 }
 
+#scrabble-bottom-nav > a
+{
+    font-size: 18px;
+
+    text-align: center;
+
+    color: #02bfa1;
+}
+
+div.double-letter-check
+{
+    margin-left: 2px;
+}
+
+div.triple-letter-check
+{
+    margin-left: 2px;
+}
+
 div.new-word-submit-btn
 {
-	margin-top: 1vw;
-	margin-left: 30vw;
+	margin-top: 10px;
+	margin-left: 310px;
 }
 
 div.scrabble-title
@@ -172,7 +214,7 @@ div.page-title
     font-size: 40px;
     font-weight: 450;
 
-    margin-bottom: 3vw;
+    margin-bottom: 30px;
 
     text-align: center;
 
@@ -201,7 +243,7 @@ div.new-scrabble-description
 div.remaining-letters-label
 {
     font-size: 1em;
-    margin-bottom: 1vw;
+    margin-bottom: 10px;
 }
 
 div.remaining-letters
@@ -222,7 +264,7 @@ div.nav-link > a
 
 div.enter-new-word-title
 {
-    margin-bottom: 2vw;
+    margin-bottom: 20px;
     font-size: 1.5em;
     font-weight: 700;
     font-style: italic;
@@ -232,7 +274,7 @@ input[type=submit]#bottom-btn
 {
     font-size: 0.8em;
 
-    width: 20vw;
+    width: 200px;
     padding: 1% 1%;
 
     color: #fff;
@@ -242,8 +284,8 @@ input[type=submit]#bottom-btn
 
 input[type=number]#new-num-of-players-text
 {
-	margin-top: 1vw;
-	margin-bottom: 1vw;
+	margin-top: 10px;
+	margin-bottom: 10px;
 	text-align: center;
 	font-size: 0.8em;
     width: 10vw;
@@ -257,11 +299,11 @@ input[type=number]#new-num-of-players-text
 
 input[type=text]#create-new-player-name-input
 {
-    margin-bottom: 1vw;
+    margin-bottom: 10px;
     text-align: left;
     font-size: 0.8em;
-    width: 30vw;
-    padding: 0.5vw 0.5vw;
+    width: 300px;
+    padding: 5px 5px;
 
     color: #427a63;
     border: 1px solid #74b69a;
@@ -271,11 +313,11 @@ input[type=text]#create-new-player-name-input
 
 input[type=number]#create-new-player-turn-input
 {
-    margin-bottom: 1vw;
+    margin-bottom: 10px;
     text-align: center;
     font-size: 0.8em;
     width: 6vw;
-    padding: 0.5vw 0.5vw;
+    padding: 5px 5px;
 
     color: #427a63;
     border: 1px solid #74b69a;
@@ -288,8 +330,8 @@ div#create-new-player-name-label
     font-size: 1.1em;
     font-weight: 350;
     
-    margin-left: 20vw;
-    margin-right: 1.7vw;
+    margin-left: 200px;
+    margin-right: 18px;
     text-align: left;
 }
 
@@ -306,9 +348,9 @@ div#create-new-player-turn-label
     font-size: 1.1em;
     font-weight: 350;
     
-    margin-left: 20vw;
-    margin-right: 1.7vw;
-    margin-top: 1vw;
+    margin-left: 200px;
+    margin-right: 18vw;
+    margin-top: 10px;
     text-align: left;
 }
 
@@ -317,6 +359,505 @@ div#create-new-player-turn
     font-size: 1em;
     font-weight: 350;
 
-    margin-top: 1vw;
+    margin-top: 10px;
     text-align: left;
+}
+
+input[type=checkbox].double-letter-checkbox,
+input[type=checkbox].triple-letter-checkbox
+{
+    position:absolute; 
+    z-index:-1000; 
+    left:-1000px; 
+    overflow: hidden; 
+    clip: rect(0 0 0 0); 
+    height:1px; 
+    width:1px; 
+    padding:0; 
+    border:0;
+}
+
+input[type=checkbox].double-letter-checkbox + label.double-letter-checkbox-label,
+input[type=checkbox].triple-letter-checkbox + label.triple-letter-checkbox-label
+{
+    padding-left:30px;
+    height:40px;
+    width:40px; 
+    display:inline-block;
+    line-height:40px;
+    background-repeat:no-repeat;
+    background-position: 0 0;
+    font-size:40px;
+    vertical-align:middle;
+    cursor:pointer;
+}
+
+input[type=checkbox].double-letter-checkbox:checked + label.double-letter-checkbox-label {
+    background-image:url('double-letter.png');
+}
+
+label.double-letter-checkbox-label {
+    background-image:url('empty.png');
+    background-size: 36px 36px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+input[type=checkbox].triple-letter-checkbox:checked + label.triple-letter-checkbox-label {
+    background-image:url('triple-letter.png');
+}
+
+label.triple-letter-checkbox-label {
+    background-image:url('empty.png');
+    background-size: 36px 36px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+div.word-char-div
+{
+    width: 48.8px;
+    text-align: center;
+    margin-bottom:0;
+}
+
+.form-group.row#input-letter
+{
+    margin-bottom: 1vw;
+}
+
+.form-group.row#each-letter-checkbox
+{
+    margin-bottom: 0;
+}
+
+@media all and (max-width:900px) 
+{
+    body
+    {
+        font-size: 25px;
+
+        width: 95%;
+        height: 100vh;
+        padding-top: 20px;
+
+        text-align: left;
+
+        opacity: .85;
+    }
+
+    div.word-char
+    {
+        width: 38px;
+        margin-right: 1px;
+    }
+
+    div.new-word-input-label
+    {
+        font-size: 0.65em;
+        font-weight: 1000;
+        text-align: center;
+        line-height: 1.1em;
+        width: 92px;
+    }
+
+    div.word-input-letters
+    {
+        margin-left: 2px;
+    }
+
+    input.word-char
+    {
+        width: 41.5px;
+        height: 62.25px;
+        border-style: solid;
+        border-color: #427a63;
+        padding: 5.5px;
+        margin-right: 0.71vw;
+    }
+
+    div.double-word-check
+    {
+        font-size: 0.7em;
+        margin-right: 10px;
+    }
+
+    div.triple-word-check
+    {
+        font-size: 0.7em;
+    }
+
+
+    #scrabble-main
+    {
+        margin: auto;
+        width: 95%;
+    }
+
+    #scrabbles,
+    #scrabble
+    {
+        background-color: rgba(206, 230, 220, .65);
+    }
+
+    #double-letter-checkbox
+    {
+        width: 26px;
+        margin-left: 5px;
+    }
+
+    #triple-letter-checkbox
+    {
+        width: 26px;
+        margin-left: 5px;
+    }
+
+    #start-new-scrabble
+    {
+        text-align: center;
+
+        color: #02bfa1;
+        background-color: rgba(206, 230, 220, .65);
+    }
+
+    #start-new-scrabble > a
+    {
+        color: #02bfa1;
+    }
+
+    #double-word-check
+    {
+        width: 125px;
+    }
+
+    #triple-word-check
+    {
+        width: 125px;
+    }
+
+    #each-word-on-show
+    {
+        margin-top: 1px;
+        margin-bottom: 1px;
+    }
+
+    #word-input-box
+    {
+        background-image: url('square-letter.jpg');
+        background-size: 1.55em;
+        padding: 0;
+        width: 415px;
+        letter-spacing: 1.55em;
+    }
+
+    #create-scrabble
+    {
+        text-align: center;
+
+        color: #02bfa1;
+        background-color: rgba(206, 230, 220, .65);
+    }
+
+    #scrabble-bottom-nav
+    {
+        font-size: 18px;
+
+        text-align: center;
+
+        background-color: rgba(206, 230, 220, .65);
+
+        font-color: #f3f3f3;
+    }
+
+    #scrabble-bottom-nav > a
+    {
+        font-size: 18px;
+
+        text-align: center;
+
+        color: #02bfa1;
+    }
+
+    div.double-letter-check
+    {
+        margin-left: 2px;
+    }
+
+    div.triple-letter-check
+    {
+        margin-left: 2px;
+    }
+
+    div.new-word-submit-btn
+    {
+        margin-top: 10px;
+        margin-left: 310px;
+    }
+
+    div.scrabble-title
+    {
+        font-size: 40px;
+
+        text-align: center;
+
+        opacity: 1;
+        color: #02bfa1;
+    }
+
+    div.scrabble-title > a
+    {
+        color: #02bfa1;
+    }
+
+    div.scrabble-title > a:hover
+    {
+        text-decoration: none;
+
+        color: #f3f3f3;
+    }
+
+    div.scrabble-description
+    {
+        font-size: 20px;
+
+        text-align: center;
+    }
+
+    div.page-title
+    {
+        font-size: 40px;
+        font-weight: 450;
+
+        margin-bottom: 30px;
+
+        text-align: center;
+
+        color: #588c76;
+    }
+
+    div.new-scrabble-num-of-players
+    {
+        font-size: 1.8em;
+        font-weight: 350;
+        
+        margin-right: 5%;
+        margin-left: 5%;
+        text-align: center;
+    }
+
+    div.new-scrabble-description
+    {
+        font-size: 22px;
+
+        margin-top: 3%;
+        margin-right: 5%;
+        margin-left: 5%;
+    }
+
+    div.remaining-letters-label
+    {
+        font-size: 1em;
+        margin-bottom: 10px;
+    }
+
+    div.remaining-letters
+    {
+        font-size: 0.9em;
+    }
+
+    div.nav-link,
+    div.nav-link > a
+    {
+        font-size: 19px;
+
+        text-align: center;
+        text-decoration: underline;
+
+        color: #427a63;
+    }
+
+    div.enter-new-word-title
+    {
+        margin-bottom: 20px;
+        font-size: 1.5em;
+        font-weight: 700;
+        font-style: italic;
+    }
+
+    input[type=submit]#bottom-btn
+    {
+        font-size: 0.8em;
+
+        width: 200px;
+        padding: 1% 1%;
+
+        color: #fff;
+        border-radius: 10px;
+        background-color: #427a63;
+    }
+
+    input[type=number]#new-num-of-players-text
+    {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        text-align: center;
+        font-size: 0.8em;
+        width: 10vw;
+        padding: 0.2vw 0.2vw;
+
+        color: #427a63;
+        border: 1px solid #74b69a;
+        border-radius: 10px;
+        background-color: #a4e1c7;
+    }
+
+    input[type=text]#create-new-player-name-input
+    {
+        margin-bottom: 10px;
+        text-align: left;
+        font-size: 0.8em;
+        width: 300px;
+        padding: 5px 5px;
+
+        color: #427a63;
+        border: 1px solid #74b69a;
+        border-radius: 10px;
+        background-color: #a4e1c7;
+    }
+
+    input[type=number]#create-new-player-turn-input
+    {
+        margin-bottom: 10px;
+        text-align: center;
+        font-size: 0.8em;
+        width: 6vw;
+        padding: 5px 5px;
+
+        color: #427a63;
+        border: 1px solid #74b69a;
+        border-radius: 10px;
+        background-color: #a4e1c7;
+    }
+
+    div#create-new-player-name-label
+    {
+        font-size: 1.1em;
+        font-weight: 350;
+        
+        margin-left: 200px;
+        margin-right: 18px;
+        text-align: left;
+    }
+
+    div#create-new-player-name
+    {
+        font-size: 1em;
+        font-weight: 350;
+        
+        text-align: left;
+    }
+
+    div#create-new-player-turn-label
+    {
+        font-size: 1.1em;
+        font-weight: 350;
+        
+        margin-left: 200px;
+        margin-right: 18vw;
+        margin-top: 10px;
+        text-align: left;
+    }
+
+    div#create-new-player-turn
+    {
+        font-size: 1em;
+        font-weight: 350;
+
+        margin-top: 10px;
+        text-align: left;
+    }
+
+    input[type=checkbox].double-letter-checkbox,
+    input[type=checkbox].triple-letter-checkbox
+    {
+        position:absolute; 
+        z-index:-1000; 
+        left:-1000px; 
+        overflow: hidden; 
+        clip: rect(0 0 0 0); 
+        height:1px; 
+        width:1px; 
+        padding:0; 
+        border:0;
+    }
+
+    input[type=checkbox].double-letter-checkbox + label.double-letter-checkbox-label,
+    input[type=checkbox].triple-letter-checkbox + label.triple-letter-checkbox-label
+    {
+        padding-left:30px;
+        height:40px;
+        width:40px; 
+        display:inline-block;
+        line-height:40px;
+        background-repeat:no-repeat;
+        background-position: 0 0;
+        font-size:40px;
+        vertical-align:middle;
+        cursor:pointer;
+    }
+
+    input[type=checkbox].double-letter-checkbox:checked + label.double-letter-checkbox-label {
+        background-image:url('double-letter.png');
+    }
+
+    label.double-letter-checkbox-label {
+        background-image:url('empty.png');
+        background-size: 36px 36px;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    input[type=checkbox].triple-letter-checkbox:checked + label.triple-letter-checkbox-label {
+        background-image:url('triple-letter.png');
+    }
+
+    label.triple-letter-checkbox-label {
+        background-image:url('empty.png');
+        background-size: 36px 36px;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    div.word-char-div
+    {
+        width: 48.8px;
+        text-align: center;
+        margin-bottom:0;
+    }
+
+    .form-group.row#input-letter
+    {
+        margin-bottom: 1vw;
+    }
+
+    .form-group.row#each-letter-checkbox
+    {
+        margin-bottom: 0;
+    }
 }

@@ -63,7 +63,7 @@
         </div>
       <% else %>
         <div class="col-sm-6">
-          PASSED (No Word Entered)
+          <%= link_to 'PASSED (No Word Entered)', edit_scrabble_player_word_path(@scrabble.id, player.id, word.id) %>
         </div>
       <% end %>
     <% end %>
@@ -75,5 +75,5 @@
 
 </ul>
 <li class="list-group-item" id="scrabble-bottom-nav">
-<%= link_to 'Home', root_path %>
+  <%= link_to 'Home', root_path %>
 </li>

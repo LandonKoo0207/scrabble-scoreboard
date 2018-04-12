@@ -14,7 +14,7 @@ class Scrabble < ApplicationRecord
     self.remaining_letters = {'A':9, 'B':2, 'C':2, 'D':4, 'E':12, 'F':2, 'G':3, \
                               'H':2, 'I':9, 'J':1, 'K':1, 'L':4, 'M':2, 'N':6, \
                               'O':8, 'P':2, 'Q':1,'R':6,'S':4,'T':6,'U':4,'V':2, \
-                              'W':2,'X':1,'Y':2,'Z':1} \
+                              'W':2, 'X':1,'Y':2,'Z':1} \
                               if self.remaining_letters.length == 0
   end
 
@@ -26,4 +26,29 @@ class Scrabble < ApplicationRecord
       self[:current_player] += 1
     end
   end
+
+  def word_possible(word)
+    word_in_hash = Hash[word[:word].split('').group_by{ |c| c }.map{ |key, value| [key, value.size] }]
+    word_in_hash.each do |letter, count|
+      if count > self.remaining_letters[letter.upcase.to_sym]
+        return false
+      end
+    end
+    true
+  end
+
+  def take_letters_for_word(word)
+    word_in_hash = Hash[word[:word].split('').group_by{ |c| c }.map{ |key, value| [key, value.size] }]
+    word_in_hash.each do |letter, count|
+      self.remaining_letters[letter.upcase.to_sym] -= count
+    end
+  end
+
+  def put_back_word(word)
+    word_in_hash = Hash[word.split('').group_by{ |c| c }.map{ |key, value| [key, value.size] }]
+    word_in_hash.each do |letter, count|
+      self.remaining_letters[letter.upcase.to_sym] += count
+    end
+  end
+
 end
