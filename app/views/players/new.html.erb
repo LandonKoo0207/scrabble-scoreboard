@@ -1,5 +1,9 @@
 <ul class="list-group">
-
+<% if @scrabble.players.pluck(:turn).min.nil? %>
+  <% new_turn = 1 %>
+<% else %>
+  <% new_turn = @scrabble.players.pluck(:turn).max + 1 %>
+<% end %>
 <%= form_for ([@scrabble, @scrabble.players.build]) do |f| %>
   <li class="list-group-item" id="scrabble">
     <div class="page-title">
@@ -29,7 +33,7 @@
     </div>
     <div id="create-new-player-turn">
       <%= f.number_field :turn, in: 1..4, id:"create-new-player-turn-input", value: 
-      "#{@scrabble.players.count}" %> (1 .. 4)
+      "#{new_turn}" %> (1 .. 4)
     </div>
     </div>
   </li>
