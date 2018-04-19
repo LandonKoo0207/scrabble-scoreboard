@@ -23,5 +23,11 @@ test:
 
 production:
   <<: *default
-  database: scrabble_scoreboard_production
+  adapter: postgresql
+  database: lk_ruby_pg
+  username: landonkoo_ruby
+  password: Kpk47503!
+  host: lk-ruby-postgres.c3v6rzty6jii.ap-southeast-2.rds.amazonaws.com
+  port: 5432
+
 
