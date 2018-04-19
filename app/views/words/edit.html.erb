@@ -1,5 +1,3 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
 <ul class="list-group">
   <li class="list-group-item" id="scrabbles">
     <div class="page-title">
@@ -8,16 +6,16 @@
 
     <% @word = Word.find(params[:id]) %>
 
-    <div class="container">
     <%= form_for [Scrabble.find(@player.scrabble_id), @player, @word] do |f| %>
-      <div class="form-group row">
+      <div class="form-group row" id="input-letter">
         <div class="new-word-input-label">
         </div>
         <div class="word-input-letters">
           <div class="row">
             <% for id in 1..15 do %>
+            <div class="word-char-div">
                 <input type="text" id="<%= id %>" class="word-char" maxlength="1" autofocus="true" style="text-transform:uppercase;" pattern="[a-zA-z]" title="Only alphbet letters are allowed.">
-              
+            </div>
             <% end %>
           </div>
         </div>
@@ -76,22 +74,26 @@
 </ul>
 <div class="nav-link">
 <%= link_to 'Back', :back %>
-</div>
+
 
 <script>
 var word = "";
-$("input").keyup(function () {
+$(".word-char").keyup(function () {
     var maxLength = $(this).attr('maxlength');
 
     if($(this).val().length == maxLength) {
-        $(this).next().focus();
+      if($(this).attr("id") < 15) {
+        nextId = parseInt($(this).attr("id")) + 1;
+        $("#"+nextId).focus();
+      }
     }
 });
 
 $(".word-char").keyup(function(e) {
   if (e.keyCode == 8) {
       if (this.id != "1") {
-        $(this).prev().focus();
+        prevId = parseInt($(this).attr("id")) - 1;
+        $("#"+prevId).focus();
       }
   }
 });

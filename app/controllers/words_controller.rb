@@ -44,7 +44,7 @@ class WordsController < ApplicationController
       if @word.update(word_params)
         @scrabble.take_letters_for_word(@word)
         @scrabble.save
-        flash[:success] = "The word has been update successfully."
+        flash[:success] = "The word has been updated successfully."
       else
         @word.errors.each do |name, msg|
           flash[:warning] = msg

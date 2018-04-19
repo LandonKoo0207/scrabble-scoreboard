@@ -1,7 +1,6 @@
-<div class="container">
-  <div class="enter-new-word-title">
-    Turn <%= @scrabble.current_turn %>: Enter a New Word, <%= @player.name %>
-  </div>
+<div class="enter-new-word-title">
+  Turn <%= @scrabble.current_turn %>: Enter a New Word, <%= @player.name %>
+</div>
 <%= form_for ([@scrabble, @player, @player.words.build]) do |f| %>
   <div class="form-group row" id="input-letter">
     <div class="new-word-input-label">
@@ -61,10 +60,10 @@
   </div>
   <div class="new-word-submit-btn">
     <%= f.submit class:"btn btn-primary", id:"new-word-submit" %>
-    <%= f.button :Pass, class:"btn btn-danger", id:"new-word-submit-pass", name: "pass", value: "Pass" %>
+    <%= f.button :Pass, class:"btn btn-danger", id:"new-word-submit-pass", name: "pass", value: "Pass", data: { confirm: "Are you sure to you want to PASS? " } %>
   </div>
 <% end %>
-</div>
+
 
 <script>
 var word = "";

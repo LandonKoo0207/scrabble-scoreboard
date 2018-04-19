@@ -3,22 +3,33 @@
 <%= form_for ([@scrabble, @scrabble.players.build]) do |f| %>
   <li class="list-group-item" id="scrabble">
     <div class="page-title">
-      Create New Player
+      Enter
+      <% if @scrabble.players.count == 0 %>
+        First
+      <% elsif @scrabble.players.count == 1 %>
+        Second
+      <% elsif @scrabble.players.count == 2 %>
+        Third
+      <% else %>
+        Fourth
+      <% end %>
+      Player
     </div>
     <div class="row">
-      <div class="col-sm-1" id="create-new-player-name-label">
+      <div id="create-new-player-name-label">
         Name:
       </div>
-      <div class="col-sm-3" id="create-new-player-name">
+      <div id="create-new-player-name">
         <%= f.text_field :name, autofocus: true, id:"create-new-player-name-input" %>
       </div>
     </div>
     <div class="row">
-    <div class="col-sm-1" id="create-new-player-turn-label">
+    <div id="create-new-player-turn-label">
       Turn:
     </div>
-    <div class="col-sm-3" id="create-new-player-turn">
-      <%= f.number_field :turn, in: 1..4, id:"create-new-player-turn-input" %> (1 .. 4)
+    <div id="create-new-player-turn">
+      <%= f.number_field :turn, in: 1..4, id:"create-new-player-turn-input", value: 
+      "#{@scrabble.players.count}" %> (1 .. 4)
     </div>
     </div>
   </li>

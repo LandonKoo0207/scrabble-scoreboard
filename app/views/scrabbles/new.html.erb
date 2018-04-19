@@ -2,9 +2,13 @@
 <%= form_for @scrabble do |f| %>
   <li class="list-group-item" id="scrabble">
     <div class="new-scrabble-num-of-players">
-      <%= f.label :num_of_players, "How many players? (2-4): ", autofocus: true %>
-      <div> 
-        <%= f.number_field :num_of_players, id: "new-num-of-players-text", autofocus: true %>
+      <%= f.label :num_of_players, "How many players? (2-4): " %>
+      <div>
+        <select name="scrabble[num_of_players]" id="num-of-players-dropdown" autofocus="autofocus">
+          <% [2, 3, 4].each do |c| %>
+            <option value=<%= c %>><%= c %></option>
+          <% end %>
+        </select>
       </div>
     </div>
   </li>

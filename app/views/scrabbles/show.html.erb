@@ -29,11 +29,13 @@
 </li>
 
 <li class="list-group-item" id="scrabbles">
-<div>
-  <h2>Leaderboard</h2>
+<div class="leaderboard">
+  <div class="page-sub-title">
+    Leaderboard
+  </div>
   <% @scrabble.players.sort_by { |player| player.words.pluck(:score).sum }.reverse.each_with_index do |player, index| %>
     <div>
-      <%= index+1 %> <%= player.name %> (<%= player.words.pluck(:score).sum %>)
+      <%= index+1 %>. <%= player.name %> (<%= player.words.pluck(:score).sum %>)
     </div>
   <% end %>
 </div>
@@ -41,8 +43,10 @@
 <li class="list-group-item" id="scrabbles">
 <div class="row">
 <% @scrabble.players.each do |player| %>
-  <div class="<%= player_scoreboard_width %>">Turn 
-    <%= player.turn %>: <%= player.name %> (<%= player.words.pluck(:score).sum %>)
+  <div class="<%= player_scoreboard_width %>">
+    <div class="player-words-list-name">
+      Player <%= player.turn %>: <%= player.name %> (<%= player.words.pluck(:score).sum %>)
+    </div>
   </div>
 <% end %>
 </div>
@@ -51,24 +55,29 @@
 <div class="row">
 <% @scrabble.players.each do |player| %>
   <div class="<%= player_scoreboard_width %>">
-  <% player.words.each do |word| %>
-    <div class="row" id="each-word-on-show">
-    <% if Word.exists? %>
-      <% if word.word.length > 0%>
-        <div class="col-sm-3">
-        <%= link_to word.word.upcase, edit_scrabble_player_word_path(@scrabble.id, player.id, word.id) %>
-        </div> 
-        <div class="col-sm-3">
-        <%= word.score %>
-        </div>
-      <% else %>
-        <div class="col-sm-6">
-          <%= link_to 'PASSED (No Word Entered)', edit_scrabble_player_word_path(@scrabble.id, player.id, word.id) %>
+    <div class="player-words-list">
+      <% player.words.each do |word| %>
+        <div class="row" id="each-word-on-show">
+        <% if Word.exists? %>
+          <% if word.word.length > 0%>
+            <div class="col-sm-9">
+            <%= link_to word.word.upcase, edit_scrabble_player_word_path(@scrabble.id, player.id, word.id) %>
+            </div> 
+            <div class="col-sm-3">
+            <%= word.score %>
+            </div>
+          <% else %>
+            <div class="col-sm-9">
+              <%= link_to 'PASSED', edit_scrabble_player_word_path(@scrabble.id, player.id, word.id) %>
+            </div>
+            <div class="col-sm-3">
+              0
+            </div>
+          <% end %>
+        <% end %>
         </div>
       <% end %>
-    <% end %>
     </div>
-  <% end %>
   </div>
 <% end %>
 </div>
