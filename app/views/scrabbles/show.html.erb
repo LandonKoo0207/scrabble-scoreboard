@@ -17,13 +17,8 @@
 
 <% if @scrabble.num_of_players < 2 %>
   There must be at least 2 players. Create more players.
-<% elsif @scrabble.num_of_players == 2 %>
-  <% player_scoreboard_width = "col-sm-6" %>
-<% elsif @scrabble.num_of_players == 3 %>
-  <% player_scoreboard_width = "col-sm-4" %>
-<% else %>
-  <% player_scoreboard_width = "col-sm-3" %>
 <% end %>
+
 <li class="list-group-item" id="scrabbles">
 <%= render template: 'words/new' %>
 </li>
@@ -41,36 +36,29 @@
 </div>
 </li>
 <li class="list-group-item" id="scrabbles">
+
 <div class="row">
 <% @scrabble.players.each do |player| %>
-  <div class="<%= player_scoreboard_width %>">
+  <div class="col">
     <div class="player-words-list-name">
       Player <%= player.turn %>: <%= player.name %> (<%= player.words.pluck(:score).sum %>)
     </div>
-  </div>
-<% end %>
-</div>
-
-
-<div class="row">
-<% @scrabble.players.each do |player| %>
-  <div class="<%= player_scoreboard_width %>">
     <div class="player-words-list">
       <% player.words.each do |word| %>
         <div class="row" id="each-word-on-show">
         <% if Word.exists? %>
           <% if word.word.length > 0%>
-            <div class="col-sm-9">
+            <div class="col-9">
             <%= link_to word.word.upcase, edit_scrabble_player_word_path(@scrabble.id, player.id, word.id) %>
             </div> 
-            <div class="col-sm-3">
+            <div class="col">
             <%= word.score %>
             </div>
           <% else %>
-            <div class="col-sm-9">
+            <div class="col-9">
               <%= link_to 'PASSED', edit_scrabble_player_word_path(@scrabble.id, player.id, word.id) %>
             </div>
-            <div class="col-sm-3">
+            <div class="col">
               0
             </div>
           <% end %>

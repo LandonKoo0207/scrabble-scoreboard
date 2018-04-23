@@ -2,17 +2,13 @@
   Turn <%= @scrabble.current_turn %>: Enter a New Word, <%= @player.name %>
 </div>
 <%= form_for ([@scrabble, @player, @player.words.build]) do |f| %>
-  <div class="form-group row" id="input-letter">
+  <div class="form-group row" id="each-letter-input">
     <div class="new-word-input-label">
     </div>
     <div class="word-input-letters">
-      <div class="row">
         <% for id in 1..15 do %>
-        <div class="word-char-div">
-            <input type="text" id="<%= id %>" class="word-char" maxlength="1" autofocus="true" style="text-transform:uppercase;" pattern="[a-zA-z]" title="Only alphbet letters are allowed.">
-          </div>
+          <input type="text" id="<%= id %>" class="word-char" maxlength="1" autofocus="true" style="text-transform:uppercase;" pattern="[a-zA-z]" title="Only alphbet letters are allowed.">
         <% end %>
-      </div>
     </div>
   </div>
   
@@ -21,14 +17,10 @@
       Double Letter
     </div>
     <div class="double-letter-check">
-      <div class="row">
-        <% for id in 1..15 do %>
-        <div class="word-char-div">
-          <%= f.check_box :double_letter, { multiple: true, id: "double-letter-checkbox-#{id}", class:"double-letter-checkbox" }, id, nil %>
+      <% for id in 1..15 do %>
+        <%= f.check_box :double_letter, { multiple: true, id: "double-letter-checkbox-#{id}", class:"double-letter-checkbox" }, id, nil %>
           <label for="double-letter-checkbox-<%=id%>" class="double-letter-checkbox-label"></label>
-        </div>
         <% end %>
-      </div>
     </div>
   </div>
   <div class="form-group row" id="each-letter-checkbox">
@@ -36,14 +28,10 @@
       Triple Letter
     </div>
     <div class="triple-letter-check">
-      <div class="row">
         <% for id in 1..15 do %>
-          <div class="word-char-div">
             <%= f.check_box :triple_letter, { multiple: true, id: "triple-letter-checkbox-#{id}", class:"triple-letter-checkbox" }, id, nil %>
             <label for="triple-letter-checkbox-<%=id%>" class="triple-letter-checkbox-label"></label>
-          </div>
         <% end %>
-      </div>
     </div>
   </div>
 

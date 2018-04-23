@@ -13,914 +13,374 @@
  */
 @import "bootstrap";
 
-body
-{
+body {
+    background: #8CDCD5; /* background: linear-gradient(70deg, #0fb8ad 0%, #b0e9f1 51%, #c2f2de 75%); */ /* background: #A9E4CC; */ /* background: rgba(140, 220, 213, .85) */
+    color: #427a63;
     font-family: 'Roboto Slab', serif;
     font-size: 25px;
-
-    width: 100%;
     height: 100vh;
-    padding-top: 20px;
-
-    text-align: left;
-
     opacity: .85;
-    color: #427a63;
-    /* background: linear-gradient(70deg, #0fb8ad 0%, #b0e9f1 51%, #c2f2de 75%); */
-    /* background: #A9E4CC; */
-    /* background: rgba(140, 220, 213, .85) */
-    background: #8CDCD5;
-}
-
-div.word-char
-{
-	width: 38px;
-	margin-right: 1px;
-}
-
-div.new-word-input-label
-{
-    font-size: 0.65em;
-    font-weight: 1000;
-    text-align: center;
-    line-height: 1.1em;
-    width: 75px;
-    margin-right: 5px;
-    margin-left: 5px;
-}
-
-div.word-input-letters
-{
-    margin-left: 3px;
-    width: 780px;
-}
-
-input.word-char
-{
-	width: 41.5px;
-    height: 62.25px;
-    border-style: solid;
-    border-color: #427a63;
-    padding: 5.5px;
-    margin-right: 7.4px;
-}
-
-div.double-word-check
-{
-    font-size: 0.7em;
-    margin-right: 10px;
-}
-
-div.triple-word-check
-{
-    font-size: 0.7em;
-}
-
-div.leaderboard
-{
-    font-size: 0.8em;
-}
-
-div.page-sub-title
-{
-    font-size: 1.4em;
+    padding-top: 20px;
     text-align: left;
-    margin-bottom: 10px;
-}
-
-div.player-words-list-name
-{
+    width: 100%; }
+ 
+ 
+#create-scrabble {
+    background-color: rgba(206, 230, 220, .65);
+    color: #02bfa1;
+    text-align: center; }
+ 
+ 
+div#create-new-player-name {
     font-size: 1em;
-}
-
-div.player-words-list
-{
-    font-size: 0.7em;
-}
-
-#scrabble-main
-{
-    margin: auto;
-    width: 900px;
-}
-
-#scrabbles,
-#scrabble
-{
-    background-color: rgba(206, 230, 220, .65);
-}
-
-#double-letter-checkbox
-{
-	width: 26px;
-	margin-left: 5px;
-}
-
-#triple-letter-checkbox
-{
-	width: 26px;
-	margin-left: 5px;
-}
-
-#start-new-scrabble
-{
-    text-align: center;
-
-    color: #02bfa1;
-    background-color: rgba(206, 230, 220, .65);
-}
-
-#start-new-scrabble > a
-{
-    color: #02bfa1;
-}
-
-#double-word-check
-{
-	width: 125px;
-}
-
-#triple-word-check
-{
-	width: 125px;
-}
-
-#each-word-on-show
-{
-	margin-top: 1px;
-	margin-bottom: 1px;
-}
-
-#word-input-box
-{
-	background-image: url('square-letter.jpg');
-	background-size: 1.55em;
-	padding: 0;
-	width: 415px;
-	letter-spacing: 1.55em;
-}
-
-#create-scrabble
-{
-    text-align: center;
-
-    color: #02bfa1;
-    background-color: rgba(206, 230, 220, .65);
-}
-
-#scrabble-bottom-nav
-{
-    font-size: 18px;
-
-    text-align: center;
-
-    background-color: rgba(206, 230, 220, .65);
-
-    font-color: #f3f3f3;
-}
-
-#scrabble-bottom-nav > a
-{
-    font-size: 18px;
-
-    text-align: center;
-
-    color: #02bfa1;
-}
-
-div.double-letter-check
-{
-    margin-left: 2px;
-    width: 750px;
-}
-
-div.triple-letter-check
-{
-    margin-left: 2px;
-    width: 750px;
-}
-
-div.new-word-submit-btn
-{
-	margin-top: 10px;
-	margin-left: 310px;
-}
-
-div.scrabble-title
-{
-    font-size: 40px;
-
-    text-align: center;
-
-    opacity: 1;
-    color: #02bfa1;
-}
-
-div.scrabble-title > a
-{
-    color: #02bfa1;
-}
-
-div.scrabble-title > a:hover
-{
-    text-decoration: none;
-
-    color: #f3f3f3;
-}
-
-div.scrabble-description
-{
-    font-size: 20px;
-
-    text-align: center;
-}
-
-div.page-title
-{
-    font-size: 40px;
-    font-weight: 450;
-
-    margin-bottom: 30px;
-
-    text-align: center;
-
-    color: #588c76;
-}
-
-div.new-scrabble-num-of-players
-{
-    font-size: 1.8em;
     font-weight: 350;
-    
-    margin-right: 5%;
-    margin-left: 5%;
-    text-align: center;
-}
-
-div.new-scrabble-description
-{
-    font-size: 22px;
-
-    margin-top: 3%;
-    margin-right: 5%;
-    margin-left: 5%;
-}
-
-div.remaining-letters-label
-{
-    font-size: 1em;
-    margin-bottom: 10px;
-}
-
-div.remaining-letters
-{
-    font-size: 0.9em;
-}
-
-div.nav-link,
-div.nav-link > a
-{
-    font-size: 19px;
-
-    text-align: center;
-    text-decoration: underline;
-
-    color: #427a63;
-}
-
-div.enter-new-word-title
-{
-    margin-bottom: 20px;
-    font-size: 1.5em;
-    font-weight: 700;
-    font-style: italic;
-}
-
-input[type=submit]#bottom-btn
-{
-    font-size: 0.8em;
-
-    width: 200px;
-    padding: 1% 1%;
-
-    color: #fff;
-    border-radius: 10px;
-    background-color: #427a63;
-}
-
-input[type=number]#new-num-of-players-text
-{
-	margin-top: 10px;
-	margin-bottom: 10px;
-	text-align: center;
-	font-size: 0.8em;
-    width: 10vw;
-    padding: 0.2vw 0.2vw;
-
-    color: #427a63;
-    border: 1px solid #74b69a;
-    border-radius: 10px;
-    background-color: #a4e1c7;
-}
-
-input[type=text]#create-new-player-name-input
-{
-    margin-bottom: 10px;
-    text-align: left;
-    font-size: 0.8em;
-    width: 300px;
-    padding: 5px 5px;
-
-    color: #427a63;
-    border: 1px solid #74b69a;
-    border-radius: 10px;
-    background-color: #a4e1c7;
-}
-
-input[type=number]#create-new-player-turn-input
-{
-    margin-bottom: 10px;
-    text-align: center;
-    font-size: 0.8em;
-    width: 6vw;
-    padding: 5px 5px;
-
-    color: #427a63;
-    border: 1px solid #74b69a;
-    border-radius: 10px;
-    background-color: #a4e1c7;
-}
-
-#num-of-players-dropdown
-{
-    width: 100px;
-    text-indent: 20px;
-    color: #427a63;
-}
-
-div#create-new-player-name-label
-{
+    text-align: left; }
+ 
+ 
+div#create-new-player-name-label {
     font-size: 1.1em;
     font-weight: 350;
-    
     margin-left: 200px;
     margin-right: 18px;
-    text-align: left;
-}
-
-div#create-new-player-name
-{
+    text-align: left; }
+ 
+ 
+div#create-new-player-turn {
     font-size: 1em;
     font-weight: 350;
-    
-    text-align: left;
-}
-
-div#create-new-player-turn-label
-{
+    margin-top: 10px;
+    text-align: left; }
+ 
+ 
+div#create-new-player-turn-label {
     font-size: 1.1em;
     font-weight: 350;
-    
     margin-left: 200px;
     margin-right: 32px;
     margin-top: 10px;
-    text-align: left;
-}
-
-div#create-new-player-turn
-{
-    font-size: 1em;
-    font-weight: 350;
-
-    margin-top: 10px;
-    text-align: left;
-}
-
-input[type=checkbox].double-letter-checkbox,
-input[type=checkbox].triple-letter-checkbox
-{
-    position:absolute; 
-    z-index:-1000; 
-    left:-1000px; 
-    overflow: hidden; 
-    clip: rect(0 0 0 0); 
-    height:1px; 
-    width:1px; 
-    padding:0; 
-    border:0;
-}
-
-input[type=checkbox].double-letter-checkbox + label.double-letter-checkbox-label,
-input[type=checkbox].triple-letter-checkbox + label.triple-letter-checkbox-label
-{
-    padding-left:30px;
-    height:40px;
-    width:40px; 
-    display:inline-block;
-    line-height:40px;
-    background-repeat:no-repeat;
-    background-position: 0 0;
-    font-size:40px;
-    vertical-align:middle;
-    cursor:pointer;
-}
-
-input[type=checkbox].double-letter-checkbox:checked + label.double-letter-checkbox-label {
-    background-image:url('double-letter.png');
-}
-
-label.double-letter-checkbox-label {
-    background-image:url('empty.png');
-    background-size: 36px 36px;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-input[type=checkbox].triple-letter-checkbox:checked + label.triple-letter-checkbox-label {
-    background-image:url('triple-letter.png');
-}
-
-label.triple-letter-checkbox-label {
-    background-image:url('empty.png');
-    background-size: 36px 36px;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-div.word-char-div
-{
-    width: 50px;
-    text-align: center;
+    text-align: left; }
+ 
+ 
+div.double-letter-check {
     margin-bottom:0;
-}
-
-.form-group.row#input-letter
-{
-    margin-bottom: 11px;
-}
-
-.form-group.row#each-letter-checkbox
-{
+    margin-left: 0px;
+    width: 800px; }
+ 
+ 
+div.double-word-check {
+    font-size: 0.7em;
+    margin-right: 10px; }
+ 
+ 
+div.enter-new-word-title {
+    font-size: 1.5em;
+    font-style: italic;
+    font-weight: 700;
+    margin-bottom: 20px; }
+ 
+ 
+div.leaderboard { font-size: 0.8em; }
+ 
+ 
+div.nav-link,
+div.nav-link > a {
+    color: #427a63;
+    font-size: 19px;
+    text-align: center;
+    text-decoration: underline; }
+ 
+ 
+div.new-scrabble-description {
+    font-size: 22px;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 3%; }
+ 
+ 
+div.new-scrabble-num-of-players {
+    font-size: 1.8em;
+    font-weight: 350;
+    margin-left: 5%;
+    margin-right: 5%;
+    text-align: center; }
+ 
+ 
+div.new-word-input-label {
+    font-size: 0.65em;
+    font-weight: 1000;
+    line-height: 1.1em;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    text-align: center;
+    width: 75px; }
+ 
+ 
+div.new-word-submit-btn {
+    margin-left: 310px;
+    margin-top: 10px; }
+ 
+ 
+div.page-sub-title {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+    text-align: left; }
+ 
+ 
+div.page-title {
+    color: #588c76;
+    font-size: 40px;
+    font-weight: 450;
+    margin-bottom: 30px;
+    text-align: center; }
+ 
+ 
+div.player-words-list { font-size: 0.7em; }
+ 
+ 
+div.player-words-list-name { font-size: 1em; }
+ 
+ 
+div.remaining-letters { font-size: 0.9em; }
+ 
+ 
+div.remaining-letters-label {
+    font-size: 1em;
+    margin-bottom: 10px; }
+ 
+ 
+div.scrabble-description {
+    font-size: 20px;
+    text-align: center; }
+ 
+ 
+div.scrabble-title {
+    color: #02bfa1;
+    font-size: 40px;
+    opacity: 1;
+    text-align: center; }
+ 
+    div.scrabble-title > a { color: #02bfa1; }
+ 
+        div.scrabble-title > a:hover {
+            color: #f3f3f3;
+            text-decoration: none; }
+ 
+ 
+div.triple-letter-check { width: 800px; }
+ 
+ 
+div.triple-word-check { font-size: 0.7em; }
+ 
+ 
+div.word-char {
+    margin-right: 0;
+    width: 38px; }
+ 
+ 
+div.word-input-letters {
+    margin-left: 0px;
+    width: 780px; }
+ 
+ 
+#double-letter-checkbox { width: 26px; }
+ 
+ 
+#double-word-check { width: 125px; }
+ 
+ 
+#each-word-on-show {
+    margin-bottom: 1px;
+    margin-top: 1px; }
+ 
+ 
+.form-group.row#each-letter-checkbox {
     margin-bottom: 0;
-}
+    margin-top: 0; }
+ 
+ 
+.form-group.row#each-letter-input {
+    margin-bottom: 10px;
+    margin-top: 0; }
+ 
+ 
+input.word-char {
+    border-color: #427a63;
+    border-style: solid;
+    float: left;
+    height: 62.25px;
+    margin-right: 5.2px;
+    padding: 5.5px;
+    width: 46px; }
+ 
+ 
+input[type=checkbox].double-letter-checkbox + label.double-letter-checkbox-label,
+input[type=checkbox].triple-letter-checkbox + label.triple-letter-checkbox-label {
+    background-position: 0 0;
+    background-repeat:no-repeat;
+    cursor:pointer;
+    display:inline-block;
+    font-size: 45px;
+    height: 45px;
+    line-height: 45px;
+    margin-right:0;
+    padding-left:0px;
+    vertical-align:middle;
+    width: 45px; }
+ 
+ 
+input[type=checkbox].double-letter-checkbox,
+input[type=checkbox].triple-letter-checkbox {
+    border:0;
+    clip: rect(0 0 0 0);
+    height:1px;
+    left:-1000px;
+    overflow: hidden;
+    padding:0;
+    position:absolute;
+    width:1px;
+    z-index:-1000; }
+ 
+ 
+input[type=checkbox].double-letter-checkbox:checked + label.double-letter-checkbox-label { background-image:url('double-letter.png'); }
+ 
+ 
+input[type=checkbox].triple-letter-checkbox:checked + label.triple-letter-checkbox-label { background-image:url('triple-letter.png'); }
+ 
+ 
+input[type=number]#create-new-player-turn-input {
+    background-color: #a4e1c7;
+    border-radius: 10px;
+    border: 1px solid #74b69a;
+    color: #427a63;
+    font-size: 0.8em;
+    margin-bottom: 10px;
+    padding: 5px 5px;
+    text-align: center;
+    width: 6vw; }
+ 
+ 
+input[type=number]#new-num-of-players-text {
+    background-color: #a4e1c7;
+    border-radius: 10px;
+    border: 1px solid #74b69a;
+    color: #427a63;
+    font-size: 0.8em;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding: 0.2vw 0.2vw;
+    text-align: center;
+    width: 10vw; }
+ 
+ 
+input[type=submit]#bottom-btn {
+    background-color: #427a63;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 0.8em;
+    padding: 1% 1%;
+    width: 200px; }
+ 
+ 
+input[type=text]#create-new-player-name-input {
+    background-color: #a4e1c7;
+    border-radius: 10px;
+    border: 1px solid #74b69a;
+    color: #427a63;
+    font-size: 0.8em;
+    margin-bottom: 10px;
+    padding: 5px 5px;
+    text-align: left;
+    width: 300px; }
+ 
+ 
+label.double-letter-checkbox-label {
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    background-image:url('empty.png');
+    background-size: 44px 44px;
+    user-select: none; }
+ 
+ 
+label.triple-letter-checkbox-label {
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    background-image:url('empty.png');
+    background-size: 44px 44px;
+    user-select: none; }
+ 
+ 
+#num-of-players-dropdown {
+    color: #427a63;
+    text-indent: 20px;
+    width: 100px; }
+ 
+ 
+#scrabble-bottom-nav {
+    background-color: rgba(206, 230, 220, .65);
+    font-color: #f3f3f3;
+    font-size: 18px;
+    text-align: center; }
+ 
+    #scrabble-bottom-nav > a {
+        color: #02bfa1;
+        font-size: 18px;
+        text-align: center; }
+ 
+ 
+#scrabble-main {
+    margin: auto;
+    width: 900px; }
+ 
+ 
+#scrabbles,
+#scrabble { background-color: rgba(206, 230, 220, .65); }
+ 
+ 
+#start-new-scrabble {
+    background-color: rgba(206, 230, 220, .65);
+    color: #02bfa1;
+    text-align: center; }
+ 
+    #start-new-scrabble > a { color: #02bfa1; }
+ 
+ 
+#triple-letter-checkbox { width: 26px; }
+ 
+ 
+#triple-word-check { width: 125px; }
+ 
+ 
+#word-input-box {
+    background-image: url('square-letter.jpg');
+    background-size: 1.55em;
+    letter-spacing: 1.55em;
+    padding: 0;
+    width: 415px; }
+ 
 
 @media all and (max-width:900px) 
 {
-    body
-    {
+
+    body {
+        background: #8CDCD5; /* background: linear-gradient(70deg, #0fb8ad 0%, #b0e9f1 51%, #c2f2de 75%); */ /* background: #A9E4CC; */ /* background: rgba(140, 220, 213, .85) */
+        color: #427a63;
+        font-family: 'Roboto Slab', serif;
         font-size: 25px;
-
-        width: 100%;
         height: 100vh;
-        padding-top: 20px;
-
-        text-align: left;
-
         opacity: .85;
-    }
-
-    div.word-char
-    {
-        width: 5vw;
-        margin-right: 1vw;
-    }
-
-    div.new-word-input-label
-    {
-        font-size: 0.5em;
-        font-weight: 1000;
-        text-align: center;
-        line-height: 1.1em;
-        width: 5vw;
-        margin-right: 2vw;
-        margin-top: 0.6vw;
-    }
-
-    div.word-input-letters
-    {
-        margin-left: 3.35vw;
-        width: 75vw;
-    }
-
-    input.word-char
-    {
-        width: 4vw;
-        height: 7vw;
-        border-style: solid;
-        border-color: #427a63;
-        padding: 2px;
-        margin-right: 0.71vw;
-    }
-
-    div.double-word-check
-    {
-        font-size: 0.7em;
-        margin-right: 10px;
-    }
-
-    div.triple-word-check
-    {
-        font-size: 0.7em;
-    }
-
-
-    #scrabble-main
-    {
+        padding-top: 20px;
+        text-align: left;
+         }
+     
+     
+    #scrabble-main {
         margin: auto;
-        width: 95%;
-    }
-
-    #scrabbles,
-    #scrabble
-    {
-        background-color: rgba(206, 230, 220, .65);
-    }
-
-    #double-letter-checkbox
-    {
-        width: 5vw;
-        margin-left: 5px;
-    }
-
-    #triple-letter-checkbox
-    {
-        width: 5vw;
-        margin-left: 5px;
-    }
-
-    #start-new-scrabble
-    {
-        text-align: center;
-
-        color: #02bfa1;
-        background-color: rgba(206, 230, 220, .65);
-    }
-
-    #start-new-scrabble > a
-    {
-        color: #02bfa1;
-    }
-
-    #double-word-check
-    {
-        width: 125px;
-    }
-
-    #triple-word-check
-    {
-        width: 125px;
-    }
-
-    #each-word-on-show
-    {
-        margin-top: 1px;
-        margin-bottom: 1px;
-    }
-
-    #word-input-box
-    {
-        background-image: url('square-letter.jpg');
-        background-size: 1.55em;
-        padding: 0;
-        width: 415px;
-        letter-spacing: 1.55em;
-    }
-
-    #create-scrabble
-    {
-        text-align: center;
-
-        color: #02bfa1;
-        background-color: rgba(206, 230, 220, .65);
-    }
-
-    #scrabble-bottom-nav
-    {
-        font-size: 18px;
-
-        text-align: center;
-
-        background-color: rgba(206, 230, 220, .65);
-
-        font-color: #f3f3f3;
-    }
-
-    #scrabble-bottom-nav > a
-    {
-        font-size: 18px;
-
-        text-align: center;
-
-        color: #02bfa1;
-    }
-
-    div.double-letter-check
-    {
-        margin-left: 1vw;
-        width: 72vw;
-    }
-
-    div.triple-letter-check
-    {
-        margin-left: 1vw;
-        width: 72vw;
-    }
-
-    div.new-word-submit-btn
-    {
-        margin-top: 10px;
-        margin-left: 30vw;
-    }
-
-    div.scrabble-title
-    {
-        font-size: 40px;
-
-        text-align: center;
-
-        opacity: 1;
-        color: #02bfa1;
-    }
-
-    div.scrabble-title > a
-    {
-        color: #02bfa1;
-    }
-
-    div.scrabble-title > a:hover
-    {
-        text-decoration: none;
-
-        color: #f3f3f3;
-    }
-
-    div.scrabble-description
-    {
-        font-size: 20px;
-
-        text-align: center;
-    }
-
-    div.page-title
-    {
-        font-size: 40px;
-        font-weight: 450;
-
-        margin-bottom: 30px;
-
-        text-align: center;
-
-        color: #588c76;
-    }
-
-    div.new-scrabble-num-of-players
-    {
-        font-size: 1.8em;
-        font-weight: 350;
-        
-        margin-right: 5%;
-        margin-left: 5%;
-        text-align: center;
-    }
-
-    div.new-scrabble-description
-    {
-        font-size: 22px;
-
-        margin-top: 3%;
-        margin-right: 5%;
-        margin-left: 5%;
-    }
-
-    div.remaining-letters-label
-    {
-        font-size: 1em;
-        margin-bottom: 10px;
-    }
-
-    div.remaining-letters
-    {
-        font-size: 0.9em;
-    }
-
-    div.nav-link,
-    div.nav-link > a
-    {
-        font-size: 19px;
-
-        text-align: center;
-        text-decoration: underline;
-
-        color: #427a63;
-    }
-
-    div.enter-new-word-title
-    {
-        margin-bottom: 20px;
-        font-size: 1.5em;
-        font-weight: 700;
-        font-style: italic;
-    }
-
-    div.leaderboard
-    {
-        font-size: 2.5vw;
-    }
-
-    div.page-sub-title
-    {
-        font-size: 1.4em;
-        text-align: left;
-        margin-bottom: 10px;
-    }
-
-    div.player-words-list-name
-    {
-        font-size: 2.5vw;
-    }
-
-    div.player-words-list
-    {
-        font-size: 2vw;
-    }
-
-
-    input[type=submit]#bottom-btn
-    {
-        font-size: 0.8em;
-
-        width: 200px;
-        padding: 1% 1%;
-
-        color: #fff;
-        border-radius: 10px;
-        background-color: #427a63;
-    }
-
-    input[type=number]#new-num-of-players-text
-    {
-        margin-top: 10px;
-        margin-bottom: 10px;
-        text-align: center;
-        font-size: 0.8em;
-        width: 10vw;
-        padding: 0.2vw 0.2vw;
-
-        color: #427a63;
-        border: 1px solid #74b69a;
-        border-radius: 10px;
-        background-color: #a4e1c7;
-    }
-
-    input[type=text]#create-new-player-name-input
-    {
-        margin-bottom: 10px;
-        text-align: left;
-        font-size: 0.8em;
-        width: 300px;
-        padding: 5px 5px;
-
-        color: #427a63;
-        border: 1px solid #74b69a;
-        border-radius: 10px;
-        background-color: #a4e1c7;
-    }
-
-    input[type=number]#create-new-player-turn-input
-    {
-        margin-bottom: 10px;
-        text-align: center;
-        font-size: 0.8em;
-        width: 6vw;
-        padding: 5px 5px;
-
-        color: #427a63;
-        border: 1px solid #74b69a;
-        border-radius: 10px;
-        background-color: #a4e1c7;
-    }
-
-    div#create-new-player-name-label
-    {
-        font-size: 1.1em;
-        font-weight: 350;
-        
-        margin-left: 20vw;
-        margin-right: 18px;
-        text-align: left;
-    }
-
-    div#create-new-player-name
-    {
-        font-size: 1em;
-        font-weight: 350;
-        
-        text-align: left;
-    }
-
-    div#create-new-player-turn-label
-    {
-        font-size: 1.1em;
-        font-weight: 350;
-        
-        margin-left: 20vw;
-        margin-right: 4vw;
-        margin-top: 10px;
-        text-align: left;
-    }
-
-    div#create-new-player-turn
-    {
-        font-size: 1em;
-        font-weight: 350;
-
-        margin-top: 10px;
-        text-align: left;
-    }
-
-    input[type=checkbox].double-letter-checkbox,
-    input[type=checkbox].triple-letter-checkbox
-    {
-        position:absolute; 
-        z-index:-1000; 
-        left:-1000px; 
-        overflow: hidden; 
-        clip: rect(0 0 0 0); 
-        height:1px; 
-        width:1px; 
-        padding:0; 
-        border:0;
-    }
-
-    input[type=checkbox].double-letter-checkbox + label.double-letter-checkbox-label,
-    input[type=checkbox].triple-letter-checkbox + label.triple-letter-checkbox-label
-    {
-        padding-left:30px;
-        height:4vw;
-        width:4vw; 
-        display:inline-block;
-        line-height:4vw;
-        background-repeat:no-repeat;
-        background-position: 0 0;
-        font-size:4vw;
-        vertical-align:middle;
-        cursor:pointer;
-    }
-
-    input[type=checkbox].double-letter-checkbox:checked + label.double-letter-checkbox-label {
-        background-image:url('double-letter.png');
-    }
-
-    label.double-letter-checkbox-label {
-        background-image:url('empty.png');
-        background-size: 4vw 4vw;
-        -webkit-touch-callout: none;
-        -webkit-user-select: none;
-        -khtml-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-    }
-
-    input[type=checkbox].triple-letter-checkbox:checked + label.triple-letter-checkbox-label {
-        background-image:url('triple-letter.png');
-    }
-
-    label.triple-letter-checkbox-label {
-        background-image:url('empty.png');
-        background-size: 3.9vw 3.9vw;
-        -webkit-touch-callout: none;
-        -webkit-user-select: none;
-        -khtml-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-    }
-
-    div.word-char-div
-    {
-        width: 5vw;
-        text-align: center;
-        margin-bottom:0;
-    }
-
-    .form-group.row#input-letter
-    {
-        margin-bottom: 1vw;
-    }
-
-    .form-group.row#each-letter-checkbox
-    {
-        margin-bottom: 0;
-        margin-left:0;
-        margin-right: 0;
     }
 }
