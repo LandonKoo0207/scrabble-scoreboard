@@ -39,23 +39,26 @@
 
 <div class="row">
 <% @scrabble.players.each do |player| %>
-  <div class="col">
+  <div class="col" id="each-player-words">
     <div class="player-words-list-name">
-      Player <%= player.turn %>: <%= player.name %> (<%= player.words.pluck(:score).sum %>)
+      Player <%= player.turn %>: 
+    </div>
+    <div class="player-words-list-name">
+      <%= player.name %> (<%= player.words.pluck(:score).sum %>)
     </div>
     <div class="player-words-list">
       <% player.words.each do |word| %>
         <div class="row" id="each-word-on-show">
         <% if Word.exists? %>
           <% if word.word.length > 0%>
-            <div class="col-9">
+            <div class="col-8">
             <%= link_to word.word.upcase, edit_scrabble_player_word_path(@scrabble.id, player.id, word.id) %>
             </div> 
             <div class="col">
             <%= word.score %>
             </div>
           <% else %>
-            <div class="col-9">
+            <div class="col-8" >
               <%= link_to 'PASSED', edit_scrabble_player_word_path(@scrabble.id, player.id, word.id) %>
             </div>
             <div class="col">

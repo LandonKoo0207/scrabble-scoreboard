@@ -104,7 +104,7 @@ $("#triple-word-checkbox").change(function () {
 
 $("form").submit(function () {
   word = ""
-  for (i = 1; i < 15; i++){
+  for (i = 1; i <= 15; i++){
     word += $("#"+i).val();
   }
   $("#word-input").val(word);
