@@ -187,8 +187,16 @@ div.word-input-letters {
  
  
 #double-word-check { width: 125px; }
+
+
+#each-player-words
+{
+    padding-left: 1vw;
+    padding-right: 1vw;
+    font-size: 0.8em;
+} 
  
- 
+
 #each-word-on-show {
     margin-bottom: 1px;
     margin-top: 1px; }
@@ -493,6 +501,7 @@ label.triple-letter-checkbox-label {
     {
         padding-left: 1vw;
         padding-right: 1vw;
+        font-size: 0.9em;
     }
 
     div.page-title {
