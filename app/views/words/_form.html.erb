@@ -1,6 +1,7 @@
 
   <div class="form-group row" id="each-letter-input">
     <div class="new-word-input-label">
+      <%= f.button "Reset Inputs", type: "reset", id:"reset-btn"%>
     </div>
     <div class="word-input-letters">
         <% for id in 1..15 do %>
@@ -41,6 +42,9 @@
     </div>
     <div class="triple-word-check">
       <%= f.label :triple_word, "Triple Word" %> <%= f.check_box :triple_word, id: "triple-word-checkbox" %>
+    </div>
+    <div class="reset-btn">
+      
     </div>
   </div>
   <div class="new-word-submit-btn">

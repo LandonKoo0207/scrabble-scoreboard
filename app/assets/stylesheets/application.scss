@@ -148,6 +148,21 @@ div.remaining-letters-label {
     font-size: 1em;
     margin-bottom: 10px; }
  
+
+div.reset-btn
+{
+    margin-left: 10px;
+    
+    #reset-inputs {
+        height: 30px;
+        width: 1000px;
+        font-size: 0.6em;
+        word-wrap: break-word;
+        vertical-align: top;
+    }
+    
+}
+
  
 div.scrabble-description {
     font-size: 20px;
@@ -250,10 +265,14 @@ input[type=checkbox].triple-letter-checkbox {
     z-index:-1000; }
  
  
-input[type=checkbox].double-letter-checkbox:checked + label.double-letter-checkbox-label { background-image:url('double-letter.png'); }
+input[type=checkbox].double-letter-checkbox:checked + label.double-letter-checkbox-label { 
+    background-image:url('double-letter.png'); 
+    opacity:1; }
  
  
-input[type=checkbox].triple-letter-checkbox:checked + label.triple-letter-checkbox-label { background-image:url('triple-letter.png'); }
+input[type=checkbox].triple-letter-checkbox:checked + label.triple-letter-checkbox-label { 
+    background-image:url('triple-letter.png'); 
+    opacity:1; }
  
  
 input[type=number]#create-new-player-turn-input {
@@ -300,16 +319,16 @@ input[type=text]#create-new-player-name-input {
     padding: 5px 5px;
     text-align: left;
     width: 300px; }
- 
- 
+
 label.double-letter-checkbox-label {
     -khtml-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
-    background-image:url('empty.png');
+    background-image:url('double-letter.png');
     background-size: 44px 44px;
+    opacity: 0.4;
     user-select: none; }
  
  
@@ -319,16 +338,27 @@ label.triple-letter-checkbox-label {
     -ms-user-select: none;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
-    background-image:url('empty.png');
+    background-image:url('triple-letter.png');
     background-size: 44px 44px;
+    opacity: 0.35;
     user-select: none; }
  
- 
+
 #num-of-players-dropdown {
     color: #427a63;
     text-indent: 20px;
     width: 100px; }
  
+
+#reset-btn {
+    background-color: #427a63;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 0.9em;
+    width: 60px; 
+    height: 55px;
+    vertical-align:top; }
+
  
 #scrabble-bottom-nav {
     background-color: rgba(206, 230, 220, .65);
@@ -457,7 +487,6 @@ label.triple-letter-checkbox-label {
         -ms-user-select: none;
         -webkit-touch-callout: none;
         -webkit-user-select: none;
-        background-image:url('empty.png');
         background-size: 4.9vw 4.9vw;
         user-select: none; }
  
@@ -468,7 +497,6 @@ label.triple-letter-checkbox-label {
         -ms-user-select: none;
         -webkit-touch-callout: none;
         -webkit-user-select: none;
-        background-image:url('empty.png');
         background-size: 4.9vw 4.9vw;
         user-select: none; }
  
