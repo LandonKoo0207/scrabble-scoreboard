@@ -4,15 +4,24 @@
       Scrabble Scoreboard
     </div>
   </li>
+
   <li class="list-group-item" id="scrabbles">
     <div class="remaining-letters-label">
-      Remaining Letters
+      Letters Remaining
     </div>
-    <div class="remaining-letters">
-      <% @scrabble.remaining_letters.each do |letter, count| %>
-        <strong><%= letter %></strong>: <%= count %> 
-      <% end %>
-    </div>
+    <table id="remaining-letters-table">
+      <% letters, counts = @scrabble.remaining_letters.map { |letter, count| [letter.to_s, count.to_s] }.transpose %>
+      <tr>
+        <% letters.each do |letter| %>
+          <td id="remaining-letters-letter"><strong><%= letter %></strong></td>
+        <% end %>
+      </tr>
+      <tr>
+        <% counts.each do |count| %>
+          <td id="remaining-letters-count"><%= count %></td>
+        <% end %>
+      </tr>
+    </table>
   </li>
 
 <% if @scrabble.num_of_players < 2 %>
@@ -24,16 +33,16 @@
 </li>
 
 <li class="list-group-item" id="scrabbles">
-<div class="leaderboard">
-  <div class="page-sub-title">
-    Leaderboard
-  </div>
-  <% @scrabble.players.sort_by { |player| player.words.pluck(:score).sum }.reverse.each_with_index do |player, index| %>
-    <div>
-      <%= index+1 %>. <%= player.name %> (<%= player.words.pluck(:score).sum %>)
+  <div class="leaderboard">
+    <div class="page-sub-title">
+      Leaderboard
     </div>
-  <% end %>
-</div>
+      <% @scrabble.players.sort_by { |player| player.words.pluck(:score).sum }.reverse.each_with_index do |player, index| %>
+        <div>
+          <%= index+1 %>. <%= player.name %> (<%= player.words.pluck(:score).sum %>)
+        </div>
+      <% end %>
+  </div>
 </li>
 <li class="list-group-item" id="scrabbles">
 
