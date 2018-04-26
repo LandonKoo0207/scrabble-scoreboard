@@ -237,7 +237,53 @@ input.word-char {
     margin-right: 5.2px;
     padding: 5.5px;
     width: 46px; }
- 
+
+label.existing-letter-checkbox-label {
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    background-image:url('existing-letter.png');
+    background-size: 44px 30px;
+    opacity: 0.3;
+    user-select: none; }
+
+input[type=checkbox].existing-letter-checkbox + label.existing-letter-checkbox-label {
+    background-position: 0 0;
+    background-repeat:no-repeat;
+    cursor:pointer;
+    display:inline-block;
+    font-size: 45px;
+    height: 30px;
+    line-height: 30px;
+    margin-right:0;
+    padding-left:0px;
+    vertical-align:middle;
+    width: 45px; }
+
+input[type=checkbox].existing-letter-checkbox {
+    border:0;
+    clip: rect(0 0 0 0);
+    height:1px;
+    left:-1000px;
+    overflow: hidden;
+    padding:0;
+    position:absolute;
+    width:1px;
+    z-index:-1000; }
+
+input[type=checkbox].existing-letter-checkbox:checked + label.existing-letter-checkbox-label { 
+    background-image:url('existing-letter.png'); 
+    opacity:1; }
+
+div.existing-letter-check {
+    margin-top: 5px;
+}
+
+#existing-letter-checkbox {
+    margin-bottom: 5px;
+}
  
 input[type=checkbox].double-letter-checkbox + label.double-letter-checkbox-label,
 input[type=checkbox].triple-letter-checkbox + label.triple-letter-checkbox-label {
@@ -457,7 +503,7 @@ label.triple-letter-checkbox-label {
         font-weight: 1000;
         line-height: 2vw;
         margin-left: 0.5vw;
-        margin-right: 0.5vw;
+        margin-right: 1vw;
         margin-top: 0.5vw;
         text-align: center;
         width: 6vw; }
@@ -586,4 +632,46 @@ label.triple-letter-checkbox-label {
         height: 6.5vw;
         padding-left: 0.5vw;
     }
+
+    label.existing-letter-checkbox-label {
+        background-size: 4.9vw 3vw;
+        opacity: 0.3;
+        user-select: none; }
+
+    input[type=checkbox].existing-letter-checkbox + label.existing-letter-checkbox-label {
+        background-position: 0 0;
+        background-repeat:no-repeat;
+        cursor:pointer;
+        display:inline-block;
+        font-size: 4.9vw;
+        height: 3vw;
+        line-height: 3vw;
+        margin-right:0;
+        padding-left:0px;
+        vertical-align:middle;
+        width: 4.9vw; }
+
+    input[type=checkbox].existing-letter-checkbox {
+        border:0;
+        clip: rect(0 0 0 0);
+        height:1px;
+        left:-1000px;
+        overflow: hidden;
+        padding:0;
+        position:absolute;
+        width:1px;
+        z-index:-1000; }
+
+    input[type=checkbox].existing-letter-checkbox:checked + label.existing-letter-checkbox-label { 
+        background-image:url('existing-letter.png'); 
+        opacity:1; }
+
+    div.existing-letter-check {
+        margin-top: 0.6vw;
+    }
+
+    #existing-letter-checkbox {
+        margin-bottom: 0.5vw;
+    }
+ 
 }

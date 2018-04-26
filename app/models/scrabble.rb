@@ -27,8 +27,8 @@ class Scrabble < ApplicationRecord
     end
   end
 
-  def word_possible(word)
-    word_in_hash = Hash[word[:word].split('').group_by{ |c| c }.map{ |key, value| [key, value.size] }]
+  def word_possible(word, existing_letter)
+    word_in_hash = new_letters_in_hash(word[:word], existing_letter)
     word_in_hash.each do |letter, count|
       if count > self.remaining_letters[letter.upcase.to_sym]
         return false
@@ -37,18 +37,32 @@ class Scrabble < ApplicationRecord
     true
   end
 
-  def take_letters_for_word(word)
-    word_in_hash = Hash[word[:word].split('').group_by{ |c| c }.map{ |key, value| [key, value.size] }]
+  def take_letters_for_word(word, existing_letter)
+    word_in_hash = new_letters_in_hash(word[:word], existing_letter)
     word_in_hash.each do |letter, count|
       self.remaining_letters[letter.upcase.to_sym] -= count
     end
   end
 
-  def put_back_word(word)
-    word_in_hash = Hash[word.split('').group_by{ |c| c }.map{ |key, value| [key, value.size] }]
+  def put_back_word(word, existing_letter)
+    word_in_hash = new_letters_in_hash(word, existing_letter)
     word_in_hash.each do |letter, count|
       self.remaining_letters[letter.upcase.to_sym] += count
     end
   end
 
+  def new_letters_in_hash(word, existing_letter)
+    new_letters_in_word = ""
+    if !existing_letter.nil?
+      word.each_char do |char|
+        if !existing_letter.include? word.index(char).to_s
+          new_letters_in_word += char
+        end
+        puts new_letters_in_word
+      end
+    else
+      new_letters_in_word = word
+    end
+    Hash[new_letters_in_word.split('').group_by{ |c| c }.map{ |key, value| [key, value.size] }]
+  end
 end
