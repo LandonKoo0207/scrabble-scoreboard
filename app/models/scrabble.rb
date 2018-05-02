@@ -88,6 +88,8 @@ class Scrabble < ApplicationRecord
 
   def new_letters_in_hash(word, existing_letter)
     new_letters_in_word = ""
+    existing_letter = existing_letters_to_ints(existing_letter)
+    
     if !existing_letter.nil? 
       for i in (0..word.length-1)
         new_letters_in_word += word[i] if existing_letter.exclude? i
