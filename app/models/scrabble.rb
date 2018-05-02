@@ -60,7 +60,9 @@ class Scrabble < ApplicationRecord
     
     new_word.each_char.with_index do |char, index|
       if old_word[index] != new_word[index]
-        take_letter(char)
+        if new_existing_letter.exclude? index
+          take_letter(char)
+        end
       else
         if new_existing_letter.exclude? index
           take_letter(char)
@@ -75,7 +77,9 @@ class Scrabble < ApplicationRecord
 
     old_word.each_char.with_index do |char, index|
       if old_word[index] != new_word[index]
-        put_back_letter(char)
+        if new_existing_letter.exclude? index
+          put_back_letter(char)
+        end
       else
         put_back_letter(char) if old_existing_letter.exclude? index
       end
