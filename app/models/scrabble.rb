@@ -28,7 +28,7 @@ class Scrabble < ApplicationRecord
   end
 
   def word_possible(word, existing_letter)
-    word_in_hash = new_letters_in_hash(word[:word], existing_letter)
+    word_in_hash = new_letters_in_hash(word, existing_letter)
     word_in_hash.each do |letter, count|
       if count > self.remaining_letters[letter.upcase.to_sym]
         return false
@@ -37,28 +37,56 @@ class Scrabble < ApplicationRecord
     true
   end
 
-  def take_letters_for_word(word, existing_letter)
-    word_in_hash = new_letters_in_hash(word[:word], existing_letter)
-    word_in_hash.each do |letter, count|
-      self.remaining_letters[letter.upcase.to_sym] -= count
+  def existing_letters_to_ints(existing_letter)
+    if existing_letter.nil?
+      Array.new
+    else
+      existing_letter.map(&:to_i)
     end
   end
 
-  def put_back_word(word, existing_letter)
-    word_in_hash = new_letters_in_hash(word, existing_letter)
-    word_in_hash.each do |letter, count|
-      self.remaining_letters[letter.upcase.to_sym] += count
+  def take_letter(letter)
+    self.remaining_letters[letter.upcase.to_sym] -= 1
+  end
+
+  def put_back_letter(letter)
+    self.remaining_letters[letter.upcase.to_sym] += 1
+  end
+
+  def take_letters_for_word(old_word, old_existing_letter, new_word, new_existing_letter)
+    old_word = "" if old_word.nil?
+    old_existing_letter = existing_letters_to_ints(old_existing_letter)
+    new_existing_letter = existing_letters_to_ints(new_existing_letter)
+    
+    new_word.each_char.with_index do |char, index|
+      if old_word[index] != new_word[index]
+        take_letter(char)
+      else
+        if new_existing_letter.exclude? index
+          take_letter(char)
+        end
+      end
+    end
+  end
+
+  def put_back_word(old_word, old_existing_letter, new_word, new_existing_letter)
+    old_existing_letter = existing_letters_to_ints(old_existing_letter)
+    new_existing_letter = existing_letters_to_ints(new_existing_letter)
+
+    old_word.each_char.with_index do |char, index|
+      if old_word[index] != new_word[index]
+        put_back_letter(char)
+      else
+        put_back_letter(char) if old_existing_letter.exclude? index
+      end
     end
   end
 
   def new_letters_in_hash(word, existing_letter)
     new_letters_in_word = ""
-    if !existing_letter.nil?
-      word.each_char do |char|
-        if !existing_letter.include? word.index(char).to_s
-          new_letters_in_word += char
-        end
-        puts new_letters_in_word
+    if !existing_letter.nil? 
+      for i in (0..word.length-1)
+        new_letters_in_word += word[i] if existing_letter.exclude? i
       end
     else
       new_letters_in_word = word

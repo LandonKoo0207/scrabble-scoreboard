@@ -38,6 +38,14 @@ $(".word-char").keyup(function(e) {
   }
 });
 
+$(document).ready(function () {
+  for (i = 0; i<=14; i++) {
+    if($('#existing-letter-checkbox-'+i).is(':checked')) {
+      $('#old-existing-letter-'+i).prop('checked', true);
+    }
+  }
+});
+
 $(".double-letter-checkbox").change(function () {
   id = $(this).attr("id").replace("double", "triple")
   if($('#'+id).is(':checked')) {

@@ -16,6 +16,7 @@ class Word < ApplicationRecord
     self.double_letter = Array.new() if self.double_letter.nil?
     self.triple_letter = Array.new() if self.triple_letter.nil?
     self.score = 0 if self.score.nil?
+    self.existing_letter = [] if self.existing_letter.nil?
   end
 
   def calculate_score

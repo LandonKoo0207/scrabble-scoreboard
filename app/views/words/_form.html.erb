@@ -4,8 +4,11 @@
     </div>
     <div class="existing-letter-check">
       <% for id in 0..14 do %>
-        <input type="checkbox" name="existing_letter[]" class="existing-letter-checkbox" id="existing-letter-checkbox-<%=id%>" value="<%=id%>">
+        <%= f.check_box :existing_letter, { multiple: true, id: "existing-letter-checkbox-#{id}", class:"existing-letter-checkbox"}, id, nil %>
         <label for="existing-letter-checkbox-<%=id%>" class="existing-letter-checkbox-label"></label>
+        <% if action == 'edit' %>
+          <input type="checkbox" class="old-existing-letter" id="old-existing-letter-<%=id%>" name="old_existing_letter[]" value="<%=id%>" style="display:none;">
+        <% end %>
         <% end %>
     </div>
   </div>
