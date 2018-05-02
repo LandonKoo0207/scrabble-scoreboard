@@ -45,3 +45,10 @@
 <div class="nav-link">
 <%= link_to 'Home', root_path %>
 </div>
+<script>
+  $(document).ready( function() {
+    if ($("div.alert").length > 1) {
+      $("div.alert")[0].remove();
+    }
+  });
+</script>

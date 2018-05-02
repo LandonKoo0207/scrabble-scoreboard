@@ -23,7 +23,9 @@ class PlayersController < ApplicationController
         redirect_to scrabble_path(@scrabble)
       end
     else
-      flash[:warning] = "New Player couldn't be created. Please try again"
+      @player.errors.each do |name, msg|
+        flash[:warning] = msg
+      end
       render :new
     end
   end
