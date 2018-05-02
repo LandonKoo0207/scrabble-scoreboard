@@ -6,7 +6,12 @@
       <%= link_to "Game #{scrabble.id}:", scrabble_path(scrabble) %>
     </div>
     <div class="scrabble-description">
-      Number of players: <%= scrabble.num_of_players %>
+      Players: <%= scrabble.num_of_players %> 
+      <div>
+        <% scrabble.players.each do |player| %>
+          <%= player.name %><% unless player == scrabble.players.last %>,<% end %>
+        <% end %>
+      </div>
     </div>
   <% end %>
   <li class="list-group-item" id="start-new-scrabble">
