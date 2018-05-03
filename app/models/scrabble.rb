@@ -57,7 +57,7 @@ class Scrabble < ApplicationRecord
     old_word = "" if old_word.nil?
     old_existing_letter = existing_letters_to_ints(old_existing_letter)
     new_existing_letter = existing_letters_to_ints(new_existing_letter)
-    
+
     new_word.each_char.with_index do |char, index|
       if old_word[index] != new_word[index]
         if new_existing_letter.exclude? index
@@ -77,7 +77,7 @@ class Scrabble < ApplicationRecord
 
     old_word.each_char.with_index do |char, index|
       if old_word[index] != new_word[index]
-        if new_existing_letter.exclude? index
+        if old_existing_letter.exclude? index
           put_back_letter(char)
         end
       else
