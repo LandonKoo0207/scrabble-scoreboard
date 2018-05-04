@@ -66,4 +66,17 @@ $('form').click(function() {
     $('#1').focus();
 });
 
+document.getElementById("reset-btn").onclick = function() { 
+  for (i = 1; i < 15; i++) {
+    document.getElementById(i).value = "";
+  }
+
+  var inputs=document.getElementsByTagName("input");
+  for (var i in inputs) {
+    if (inputs[i].type=="checkbox") inputs[i].checked=false;
+  }
+
+  document.getElementById("1").focus();
+};
+
 </script>

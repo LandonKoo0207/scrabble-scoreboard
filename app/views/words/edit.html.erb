@@ -38,14 +38,6 @@ $(".word-char").keyup(function(e) {
   }
 });
 
-$(document).ready(function () {
-  for (i = 0; i<=14; i++) {
-    if($('#existing-letter-checkbox-'+i).is(':checked')) {
-      $('#old-existing-letter-'+i).prop('checked', true);
-    }
-  }
-});
-
 $(".double-letter-checkbox").change(function () {
   id = $(this).attr("id").replace("double", "triple")
   if($('#'+id).is(':checked')) {
@@ -86,6 +78,29 @@ $(document).ready(function () {
   for (i = 0; i < word.length; i++){
     $("#"+(i+1)).val(word[i]);
   }
+  for (i = 0; i<=14; i++) {
+    if($('#existing-letter-checkbox-'+i).is(':checked')) {
+      $('#old-existing-letter-'+i).prop('checked', true);
+    }
+  }
 });
+
+document.getElementById("reset-btn").onclick = function() { 
+  for (i = 1; i < 15; i++) {
+    document.getElementById(i).value = "";
+  }
+
+  var inputs=document.getElementsByTagName("input");
+  for (var i in inputs) {
+    if (inputs[i].type=="checkbox") {
+      if (inputs[i].classList != "old-existing-letter") {
+        inputs[i].checked=false;
+      }
+    }
+  }
+
+  document.getElementById("1").focus();
+};
+
 
 </script>
