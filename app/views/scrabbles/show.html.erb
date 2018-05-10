@@ -29,7 +29,7 @@
 <% end %>
 
 <li class="list-group-item" id="scrabbles">
-<%= render template: 'words/new' %>
+<%= render template: 'words/new', locals: { num_of_words_passed: @num_of_words_passed } %>
 </li>
 
 <li class="list-group-item" id="scrabbles">
@@ -56,27 +56,49 @@
       <%= player.name %> (<%= player.words.pluck(:score).sum %>)
     </div>
     <div class="player-words-list">
-      <% player.words.each do |word| %>
-        <div class="row" id="each-word-on-show">
-        <% if Word.exists? %>
-          <% if word.word.length > 0%>
-            <div class="col-8">
-            <%= link_to word.word.upcase, edit_scrabble_player_word_path(@scrabble.id, player.id, word.id) %>
-            </div> 
-            <div class="col">
-            <%= word.score %>
+      <% if player.words.length > 0 %>
+        <% (1..player.words.map(&:turn).max).each do |turn| %>
+          <% words_for_turn = player.words.select { |w| w.turn == turn } %>
+          <% if words_for_turn.count == 1 %>
+            <% word = words_for_turn.first %>
+            <div class="row" id="each-word-on-show">
+              <% if Word.exists? %>
+                <% if word.word.length > 0 %>
+                  <div class="col-8">
+                    <%= link_to word.word.upcase, edit_scrabble_player_word_path(@scrabble.id, player.id, word.id) %>
+                  </div> 
+                  <div class="col">
+                    <%= word.score %>
+                  </div>
+                <% else %>
+                  <div class="col-8" >
+                    <%= link_to 'PASSED', edit_scrabble_player_word_path(@scrabble.id, player.id, word.id) %>
+                  </div>
+                  <div class="col">
+                    0
+                  </div>
+                <% end %>
+              <% end %>
             </div>
           <% else %>
-            <div class="col-8" >
-              <%= link_to 'PASSED', edit_scrabble_player_word_path(@scrabble.id, player.id, word.id) %>
-            </div>
-            <div class="col">
-              0
+            <div class="row" id="each-word-on-show">
+              <div class="col-8">
+                <% words_for_turn.each do |word| %>
+                  <%= link_to word.word.upcase, edit_scrabble_player_word_path(@scrabble.id, player.id, word.id) %>
+                  <% if word != words_for_turn.last %>
+                    ,
+                  <% end %>
+                <% end %>
+              </div>
+              <div class="col">
+                <%= words_for_turn.map(&:score).sum %>
+              </div>
             </div>
           <% end %>
         <% end %>
-        </div>
       <% end %>
+
+      
     </div>
   </div>
 <% end %>

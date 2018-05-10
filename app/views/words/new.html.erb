@@ -2,7 +2,7 @@
   Turn <%= @scrabble.current_turn %>: Enter a New Word, <%= @player.name %>
 </div>
 <%= form_for ([@scrabble, @player, @player.words.build]) do |f| %>
-<%= render "words/form",  {f: f, action: "new"} %>
+<%= render "words/form",  {f: f, action: "new", num_of_words_passed: num_of_words_passed } %>
 <% end %>
 
 <script>
@@ -78,5 +78,17 @@ document.getElementById("reset-btn").onclick = function() {
 
   document.getElementById("1").focus();
 };
+
+document.getElementById("num-of-words-minus").onclick = function() {
+  current_value = parseInt(document.getElementById("num-of-words").value);
+  if (current_value > 1)
+    document.getElementById("num-of-words").value = current_value - 1;
+}
+
+document.getElementById("num-of-words-plus").onclick = function() {
+  current_value = parseInt(document.getElementById("num-of-words").value);
+  if (current_value < 15)
+    document.getElementById("num-of-words").value = current_value + 1;
+}
 
 </script>

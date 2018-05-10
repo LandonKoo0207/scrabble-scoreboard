@@ -1,6 +1,6 @@
 class WordsController < ApplicationController
   before_action :set_player
-  before_action :set_word, only: [:edit, :update]
+  before_action :set_word, only: [:edit, :update, :destroy]
   before_action :set_scrabble
 
   def create
@@ -18,7 +18,15 @@ class WordsController < ApplicationController
       end
 
       if @word.save
-        @scrabble.set_current_player(@player.id)
+        puts "num_of_words_passed!!!!entered: #{@num_of_words_passed}"
+        if params[:num_of_words_passed].length == 0
+          puts "doesn't exists!!"
+          next_turn(params[:num_of_words])
+        else
+          puts "exist!!"
+          next_turn(params[:num_of_words_passed])
+        end
+
         @scrabble.take_letters_for_word(params[:old_word], params[:old_existing_letter], @word[:word], @word[:existing_letter])
         @scrabble.save
         flash[:success] = "New Word has been entered successfully."
@@ -30,8 +38,8 @@ class WordsController < ApplicationController
     else
       flash[:warning] = "There are not enough letters remaining to make up the word. Try again."
     end
-
-    redirect_to scrabble_path(@scrabble)
+    puts "!num_of_words_passed: #{@num_of_words_passed}"
+    redirect_to scrabble_path(@scrabble, num_of_words_passed: @num_of_words_passed)
   end
 
   def edit
@@ -59,6 +67,22 @@ class WordsController < ApplicationController
       flash[:warning] = "There are not enough letters remaining to make up the word. Try again."
     end
     redirect_to scrabble_path(@player.scrabble_id)
+  end
+
+  def destroy
+    @word.destroy
+    flash[:success] = "The word has been delete successfully."
+    redirect_to scrabble_path(@scrabble)
+  end
+
+  def next_turn(num_of_words_passed)
+    puts "parameter!!!!!!! #{num_of_words_passed}"
+    if num_of_words_passed.to_i > 1
+      @num_of_words_passed = num_of_words_passed.to_i - 1
+      puts "num:::::: #{@num_of_words_passed}"
+    else
+      @scrabble.set_current_player(@player.id)
+     end
   end
 
   private

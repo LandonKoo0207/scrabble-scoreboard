@@ -7,7 +7,7 @@
     <% @word = Word.find(params[:id]) %>
 
     <%= form_for [Scrabble.find(@player.scrabble_id), @player, @word] do |f| %>
-      <%= render 'form', {f: f, action: "edit", old_word: @word.word} %>
+      <%= render 'form', {f: f, action: "edit", old_word: @word.word, num_of_words_passed: @num_of_words_passed} %>
       <% end %>
     </div>
   </li>
@@ -101,6 +101,18 @@ document.getElementById("reset-btn").onclick = function() {
 
   document.getElementById("1").focus();
 };
+
+document.getElementById("num-of-words-minus").onclick = function() {
+  current_value = parseInt(document.getElementById("num-of-words").value);
+  if (current_value > 1)
+    document.getElementById("num-of-words").value = current_value - 1;
+}
+
+document.getElementById("num-of-words-plus").onclick = function() {
+  current_value = parseInt(document.getElementById("num-of-words").value);
+  if (current_value < 15)
+    document.getElementById("num-of-words").value = current_value + 1;
+}
 
 
 </script>

@@ -1,5 +1,37 @@
   <div class="form-group row" id="existing-letter-checkbox">
     <div class="new-word-input-label">
+      Number of words
+    </div>
+    <div class="num-of-words">
+      <div class="row">
+        <div class="num-of-words-minus-button">
+          <input type="text" name="num_of_words_passed" value="<%= num_of_words_passed %>" hidden="hidden">
+          <% if num_of_words_passed.nil? %>
+            <button type="button" id="num-of-words-minus">-</button>
+          <% else %>
+            <button type="button" id="num-of-words-minus" disabled>-</button>
+          <% end %>
+        </div>
+        <div class="num-of-words-input">
+          <% if num_of_words_passed.nil? %>
+            <input type="text" min="1" value="1" id="num-of-words" name="num_of_words">
+          <% else %>
+            <input type="text" min="1" value="1" id="num-of-words" name="num_of_words" disabled>
+          <% end %>
+        </div>
+        <div class="num-of-words-plus-button">
+          <% if num_of_words_passed.nil? %>
+            <button type="button" id="num-of-words-plus">+</button>
+          <% else %>
+            <button type="button" id="num-of-words-plus" disabled>+</button>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="form-group row" id="existing-letter-checkbox">
+    <div class="new-word-input-label">
       Already Exists?
     </div>
     <div class="existing-letter-check">
@@ -48,6 +80,11 @@
   </div>
 
   <%= f.text_field :word, style:"text-transform:uppercase", id:"word-input", hidden: "true"  %>
+  <% if action == 'new'%>
+    <%= f.number_field :turn, value: "#{@scrabble.current_turn}", hidden: "true" %>
+  <% else %>
+    <%= f.number_field :turn, value: "#{@word.turn}", hidden: "true" %>
+  <% end %>
   <div class="row">
     <div class="new-word-input-label">
     </div>
@@ -69,5 +106,10 @@
       <%= f.button "Update Word", class:"btn btn-primary", id:"new-word-submit", name: "old_word", value: "#{old_word}" %>
       <%= f.button :Pass, class:"btn btn-danger", id:"new-word-submit-pass", name: "pass", value: "Pass" %>
       <%= link_to "Cancel", :back, class: "btn btn-warning" %>
+      <% if @player.words.select { |w| w.turn == @word.turn }.count > 1 %>
+        <% if @player.words.select { |w| w.turn == @word.turn }.first != @word %>
+          <%= link_to "Delete This Word", scrabble_player_word_path(@scrabble, @player, @word),class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure delete this word?" } %>
+        <% end %>
+      <% end %>
     <% end %>
   </div>

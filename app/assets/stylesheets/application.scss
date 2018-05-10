@@ -118,9 +118,76 @@ div.new-word-input-label {
  
  
 div.new-word-submit-btn {
-    margin-left: 310px;
+    text-align: center;
     margin-top: 10px; }
- 
+
+
+div.num-of-words {
+    margin-left: 15px;
+    margin-top: 4px;
+    div.num-of-words-input {
+        input {
+            vertical-align: center;
+            width: 50px;
+            height: 35px;
+            border-style: solid;
+            border-width: 0;
+            color: #fff;
+            background-color: #5EAA8C;
+            text-align: center;
+            margin-left: 0;
+        }
+        input:disabled {
+            background-color: #DDD;
+            color: #AAA;
+        }
+    }
+    div.num-of-words-minus-button {
+        button {
+            vertical-align: center;
+            width: 27px;
+            height:35px;
+            border-style: solid;
+            border-width: 1px;
+            border-color: #5EAA8C;
+            background-color: #fff;
+            color: #5EAA8C;
+            margin-right: 0;
+            margin-top: 1px;
+            text-align: center;
+            padding-top:0;
+        }
+
+        button:disabled {
+            border-style: solid;
+            border-color: #DDD;
+            background-color: #DDD;
+            color: #AAA;
+        }
+    }
+    div.num-of-words-plus-button {
+        button {
+            vertical-align: center;
+            width: 27px;
+            height:35px;
+            border-style: solid;
+            border-width: 1px;
+            border-color: #5EAA8C;
+            background-color: #fff;
+            color: #5EAA8C;
+            margin-right: 0;
+            margin-top: 1px;
+            text-align: center;
+            padding-top:0;
+        }
+        button:disabled {
+            border-color: #DDD;
+            background-color: #DDD;
+            color: #AAA;
+        }
+    }
+}
+
  
 div.page-sub-title {
     font-size: 1.4em;
@@ -135,7 +202,7 @@ div.page-title {
     font-weight: 450;
     margin-bottom: 30px;
     text-align: center; }
- 
+
  
 div.player-words-list { font-size: 0.7em; }
  
@@ -591,7 +658,7 @@ label.triple-letter-checkbox-label {
 
     div.new-word-submit-btn {
         margin-top: 1vw;
-        margin-left: 25vw;
+        text-align: center;
         > #new-word-submit, #new-word-submit-pass{
             font-size: 2vw;
         }

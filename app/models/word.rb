@@ -3,6 +3,10 @@ class Word < ApplicationRecord
 
   validates :word, format: { with: /\A[a-zA-Z]+\z/, message: "Only letters are allowed." }, unless: :skip_validations
   validates :word, presence: true, length: { minimum: 2, message: "Word must be at least 2 characters long." }, unless: :skip_validations
+  validates_presence_of :existing_letter, { message: "At least 1 \"Alreay Exists?\" letter must be checked.\n \
+                                                    A new word cannot be created on its own unless it's the \
+                                                    first word of the scrabble game", \
+                                                    unless: :first_turn_of_first_player }
 
   after_initialize :set_defaults
   before_save :calculate_score
@@ -17,6 +21,15 @@ class Word < ApplicationRecord
     self.triple_letter = Array.new() if self.triple_letter.nil?
     self.score = 0 if self.score.nil?
     self.existing_letter = [] if self.existing_letter.nil?
+  end
+
+  def first_turn_of_first_player
+    current_player = Player.find(self.player_id)
+    current_scrabble = Scrabble.find(current_player.scrabble_id)
+
+    return true if current_player == current_scrabble.players.first and current_scrabble.current_turn == 1
+
+    false
   end
 
   def calculate_score

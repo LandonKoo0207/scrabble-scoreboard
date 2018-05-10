@@ -26,6 +26,7 @@ class ScrabblesController < ApplicationController
   def show
     @player = @scrabble.players.find(@scrabble.current_player)
     @new_word = @player.words.build
+    @num_of_words_passed = params[:num_of_words_passed]
   end
 
   def set_current_player(player_id)
