@@ -6,21 +6,28 @@
       <div class="row">
         <div class="num-of-words-minus-button">
           <input type="text" name="num_of_words_passed" value="<%= num_of_words_passed %>" hidden="hidden">
-          <% if num_of_words_passed.nil? %>
+          <% if action == 'edit' %>
+            <% if @word == @player.words.select { |w| w.turn == @word.turn }.first %>
+              <% first_word_in_this_turn = true %>
+            <% else %>
+              <% first_word_in_this_turn = false %>
+            <% end %>
+          <% end %>
+          <% if (action == 'new' and num_of_words_passed.nil?) or first_word_in_this_turn %>
             <button type="button" id="num-of-words-minus">-</button>
           <% else %>
             <button type="button" id="num-of-words-minus" disabled>-</button>
           <% end %>
         </div>
         <div class="num-of-words-input">
-          <% if num_of_words_passed.nil? %>
+          <% if (action == 'new' and num_of_words_passed.nil?) or first_word_in_this_turn %>
             <input type="text" min="1" value="1" id="num-of-words" name="num_of_words">
           <% else %>
             <input type="text" min="1" value="1" id="num-of-words" name="num_of_words" disabled>
           <% end %>
         </div>
         <div class="num-of-words-plus-button">
-          <% if num_of_words_passed.nil? %>
+          <% if (action == 'new' and num_of_words_passed.nil?) or first_word_in_this_turn %>
             <button type="button" id="num-of-words-plus">+</button>
           <% else %>
             <button type="button" id="num-of-words-plus" disabled>+</button>
@@ -105,10 +112,10 @@
     <% else %>
       <%= f.button "Update Word", class:"btn btn-primary", id:"new-word-submit", name: "old_word", value: "#{old_word}" %>
       <%= f.button :Pass, class:"btn btn-danger", id:"new-word-submit-pass", name: "pass", value: "Pass" %>
-      <%= link_to "Cancel", :back, class: "btn btn-warning" %>
+      <%= link_to "Cancel", :back, class: "btn btn-warning", id:"edit-word-cancel" %>
       <% if @player.words.select { |w| w.turn == @word.turn }.count > 1 %>
         <% if @player.words.select { |w| w.turn == @word.turn }.first != @word %>
-          <%= link_to "Delete This Word", scrabble_player_word_path(@scrabble, @player, @word),class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure delete this word?" } %>
+          <%= link_to "Delete This Word", scrabble_player_word_path(@scrabble, @player, @word),class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure delete this word?" }, id: "edit-delete-word" %>
         <% end %>
       <% end %>
     <% end %>

@@ -18,12 +18,9 @@ class WordsController < ApplicationController
       end
 
       if @word.save
-        puts "num_of_words_passed!!!!entered: #{@num_of_words_passed}"
         if params[:num_of_words_passed].length == 0
-          puts "doesn't exists!!"
           next_turn(params[:num_of_words])
         else
-          puts "exist!!"
           next_turn(params[:num_of_words_passed])
         end
 
@@ -38,7 +35,6 @@ class WordsController < ApplicationController
     else
       flash[:warning] = "There are not enough letters remaining to make up the word. Try again."
     end
-    puts "!num_of_words_passed: #{@num_of_words_passed}"
     redirect_to scrabble_path(@scrabble, num_of_words_passed: @num_of_words_passed)
   end
 
@@ -76,10 +72,8 @@ class WordsController < ApplicationController
   end
 
   def next_turn(num_of_words_passed)
-    puts "parameter!!!!!!! #{num_of_words_passed}"
     if num_of_words_passed.to_i > 1
       @num_of_words_passed = num_of_words_passed.to_i - 1
-      puts "num:::::: #{@num_of_words_passed}"
     else
       @scrabble.set_current_player(@player.id)
      end
