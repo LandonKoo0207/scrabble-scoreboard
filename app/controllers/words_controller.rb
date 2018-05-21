@@ -11,11 +11,7 @@ class WordsController < ApplicationController
         @word.calculate_score
       end
 
-      if params[:pass].present?
-        @word.skip_validations = true
-      else
-        @word.skip_validations = false
-      end
+      @word.skip_validations = params[:pass].present?
 
       if @word.save
         if params[:num_of_words_passed].length == 0

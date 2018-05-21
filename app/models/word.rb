@@ -27,9 +27,8 @@ class Word < ApplicationRecord
     current_player = Player.find(self.player_id)
     current_scrabble = Scrabble.find(current_player.scrabble_id)
 
-    return true if current_player == current_scrabble.players.first and current_scrabble.current_turn == 1
-
-    false
+    (current_player == current_scrabble.players.first and \
+                       current_scrabble.current_turn == 1) or skip_validations
   end
 
   def calculate_score
