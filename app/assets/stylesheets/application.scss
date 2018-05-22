@@ -297,7 +297,15 @@ div.word-input-letters {
 #each-word-on-show {
     margin-bottom: 1px;
     margin-top: 1px; }
- 
+
+
+#error_explanation {
+    font-size: 1em;
+    font-style: italic;
+    margin-left: 5vw;
+    margin-bottom: 20px;
+}
+
  
 .form-group.row#each-letter-checkbox {
     margin-bottom: 0;

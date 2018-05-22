@@ -1,32 +1,33 @@
 <ul class="list-group">
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <li class="list-group-item" id="scrabble">
     <div class="page-title">
       Sign up
     </div>
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= devise_error_messages! %>
 
-      <div class="new-user-input">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", id: "new-user-input-text"  %>
-      </div>
+    <%= devise_error_messages! %>
 
-      <div class="new-user-input">
-        <%= f.label :password %>
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "off", id: "new-user-input-text"  %>
-      </div>
+    <div class="new-user-input">
+      <%= f.label :email %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", id: "new-user-input-text"  %>
+    </div>
 
-      <div class="new-user-input">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "off", id: "new-user-input-text" %>
-      </div>
-    </li>
-    <li class="list-group-item" id="new-user-btn-area">
+    <div class="new-user-input">
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %>
+      <%= f.password_field :password, autocomplete: "off", id: "new-user-input-text"  %>
+    </div>
+
+    <div class="new-user-input">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, autocomplete: "off", id: "new-user-input-text" %>
+    </div>
+  </li>
+  <li class="list-group-item" id="new-user-btn-area">
       <%= f.submit "Sign Up", id: "bottom-btn" %>
-    </li>
+  </li>
 <% end %>
     <div class="nav-link">
         <%= render "devise/shared/links" %>
