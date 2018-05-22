@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Scrabble < ApplicationRecord
+  belongs_to :user
   has_many :players, dependent: :destroy
 
   serialize :remaining_letters, Hash

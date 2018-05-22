@@ -13,8 +13,16 @@
 
   <body>
     <div class="content" id="scrabble-main">
-      <div id="login-navbar">Signed In: <%= current_user.email %></div>
+      <div id="login-navbar">
+        <% if user_signed_in? %>
+          Signed In: <%= current_user.email %> 
+          <%= link_to 'Logout', destroy_user_session_path, method: :delete, id: "logout-btn" %>
+        <% end %>
+      </div>
       <% flash.each do |name, msg| %>
+        <% if name == 'notice' %>
+          <% name = 'success' %>
+        <% end %>
         <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
       <% end %>
       <%= yield %>

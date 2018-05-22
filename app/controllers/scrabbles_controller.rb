@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
 class ScrabblesController < ApplicationController
+  before_action :set_user
   before_action :set_scrabble, only: [:show]
 
   def index
-    @scrabbles = Scrabble.all.reorder(updated_at: :DESC)
+    @scrabbles = @user.scrabbles.reorder(updated_at: :DESC)
   end
 
   def new
@@ -12,7 +13,7 @@ class ScrabblesController < ApplicationController
   end
 
   def create
-    @scrabble = Scrabble.create(scrabble_params)
+    @scrabble = @user.scrabbles.create(scrabble_params)
 
     if @scrabble.save
       flash[:success] = "Let's play Scabble!"
@@ -38,10 +39,14 @@ class ScrabblesController < ApplicationController
   private
 
   def scrabble_params
-    params.require(:scrabble).permit(:num_of_players, :current_turn, :current_player, :remaining_letters)
+    params.require(:scrabble).permit(:num_of_players, :current_turn, :current_player, :remaining_letters, :user_id)
   end
 
   def set_scrabble
     @scrabble = Scrabble.find(params[:id])
+  end
+
+  def set_user
+    @user = current_user
   end
 end

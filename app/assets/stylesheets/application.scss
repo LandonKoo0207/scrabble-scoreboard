@@ -29,6 +29,11 @@ body {
     background-color: rgba(206, 230, 220, .65);
     color: #02bfa1;
     text-align: center; }
+
+#new-user-btn-area {
+    background-color: rgba(206, 230, 220, .65);
+    color: #02bfa1;
+    text-align: center; }
  
  
 div#create-new-player-name {
@@ -121,6 +126,14 @@ div.new-word-submit-btn {
     text-align: center;
     margin-top: 10px; }
 
+div.new-user-input
+{
+    font-size: 22px;
+    font-weight: 350;
+
+    margin-right: 15%;
+    margin-left: 15%;
+}
 
 div.num-of-words {
     margin-left: 15px;
@@ -422,7 +435,15 @@ input[type=submit]#bottom-btn {
     font-size: 0.8em;
     padding: 1% 1%;
     width: 200px; }
- 
+
+input[type=submit]#bottom-btn-pw-reset {
+    background-color: #427a63;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 0.8em;
+    padding: 1% 1%;
+    width: 400px; }
+
  
 input[type=text]#create-new-player-name-input {
     background-color: #a4e1c7;
@@ -434,6 +455,19 @@ input[type=text]#create-new-player-name-input {
     padding: 5px 5px;
     text-align: left;
     width: 300px; }
+
+
+#new-user-input-text
+{
+    width: 100%;
+    padding: 7px 12px;
+
+    color: #427a63;
+    border: 1px solid #74b69a;
+    border-radius: 10px;
+    background-color: #a4e1c7;
+    margin-bottom: 10px;
+}
 
 label.double-letter-checkbox-label {
     -khtml-user-select: none;
@@ -457,7 +491,16 @@ label.triple-letter-checkbox-label {
     background-size: 44px 44px;
     opacity: 0.35;
     user-select: none; }
- 
+
+
+#logout-btn {
+    background-color: #427a63;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 0.8em;
+    padding: 0.7% 1%;
+    margin-left: 5px;
+    width: 200px; }
 
 #num-of-players-dropdown {
     color: #427a63;
