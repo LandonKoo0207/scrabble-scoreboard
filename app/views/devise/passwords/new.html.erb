@@ -1,11 +1,11 @@
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%= devise_error_messages! %>
+
 <ul class="list-group">
   <li class="list-group-item" id="scrabble">
     <div class="page-title">
       Forgot your password?
     </div>
-
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
 
   <div class="new-user-input">
     <%= f.label :email %>

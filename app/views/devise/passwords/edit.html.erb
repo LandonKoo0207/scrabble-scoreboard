@@ -1,29 +1,28 @@
 <ul class="list-group">
-  <li class="list-group-item" id="scrabble">
-    <div class="page-title">
-      Change your password
-    </div>
-
-    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-      <%= devise_error_messages! %>
-      <%= f.hidden_field :reset_password_token %>
-
-      <div class="new-user-input">
-        <%= f.label :password, "New password", id: "new-user-input-text" %><br />
-        <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-        <% end %>
-        <%= f.password_field :password, autofocus: true, autocomplete: "off", id: "new-user-input-text" %>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+    <%= devise_error_messages! %>
+    <li class="list-group-item" id="scrabble">
+      <div class="page-title">
+        Change your password
       </div>
+        <%= f.hidden_field :reset_password_token %>
 
-      <div class="new-user-input">
-        <%= f.label :password_confirmation, "Confirm new password" %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "off", id: "new-user-input-text" %>
-      </div>
+        <div class="new-user-input">
+          <%= f.label :password, "New password", id: "new-user-input-text" %><br />
+          <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+          <% end %>
+          <%= f.password_field :password, autofocus: true, autocomplete: "off", id: "new-user-input-text" %>
+        </div>
+
+        <div class="new-user-input">
+          <%= f.label :password_confirmation, "Confirm new password" %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "off", id: "new-user-input-text" %>
+        </div>
     </li>
-      <li class="list-group-item" id="new-user-btn-area">
-        <%= f.submit "Change my password", id: "bottom-btn" %>
-      </li>
+    <li class="list-group-item" id="new-user-btn-area">
+      <%= f.submit "Change my password", id: "bottom-btn" %>
+    </li>
 <% end %>
-
+</ul>
 <%= render "devise/shared/links" %>
