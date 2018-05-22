@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class WordsController < ApplicationController
   before_action :set_player
   before_action :set_word, only: [:edit, :update, :destroy]
@@ -20,7 +22,7 @@ class WordsController < ApplicationController
           next_turn(params[:num_of_words_passed])
         end
 
-        @scrabble.take_letters_for_word(params[:old_word], params[:old_existing_letter], @word[:word], @word[:existing_letter])
+        @scrabble.take_letters_for_word(@word[:word], @word[:existing_letter])
         @scrabble.save
         flash[:success] = "New Word has been entered successfully."
       else
@@ -38,7 +40,7 @@ class WordsController < ApplicationController
   end
 
   def update
-    @scrabble.put_back_word(params[:old_word], params[:old_existing_letter], params[:word][:word], params[:word][:existing_letter])
+    @scrabble.put_back_word(params[:old_word], params[:old_existing_letter])
 
     if @scrabble.word_possible(params[:word][:word], params[:word][:existing_letter])
       if params[:existing_letter].nil?
@@ -46,7 +48,7 @@ class WordsController < ApplicationController
       end
 
       if @word.update(word_params)
-        @scrabble.take_letters_for_word(params[:old_word], params[:old_existing_letter], @word[:word], @word[:existing_letter])
+        @scrabble.take_letters_for_word(@word[:word], @word[:existing_letter])
         
         @scrabble.save
         flash[:success] = "The word has been updated successfully."
@@ -71,7 +73,7 @@ class WordsController < ApplicationController
     if num_of_words_passed.to_i > 1
       @num_of_words_passed = num_of_words_passed.to_i - 1
     else
-      @scrabble.set_current_player(@player.id)
+      @scrabble.new_current_player(@player.id)
      end
   end
 

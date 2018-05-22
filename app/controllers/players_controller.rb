@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PlayersController < ApplicationController
   before_action :set_scrabble
 

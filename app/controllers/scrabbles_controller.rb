@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ScrabblesController < ApplicationController
   before_action :set_scrabble, only: [:show]
 
