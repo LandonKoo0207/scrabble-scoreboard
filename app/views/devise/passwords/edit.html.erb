@@ -8,7 +8,7 @@
         <%= f.hidden_field :reset_password_token %>
 
         <div class="new-user-input">
-          <%= f.label :password, "New password", id: "new-user-input-text" %><br />
+          <%= f.label :password, "New password" %><br />
           <% if @minimum_password_length %>
             <em>(<%= @minimum_password_length %> characters minimum)</em><br />
           <% end %>
@@ -21,8 +21,10 @@
         </div>
     </li>
     <li class="list-group-item" id="new-user-btn-area">
-      <%= f.submit "Change my password", id: "bottom-btn" %>
+      <%= f.submit "Change my password", id: "bottom-btn-change-pw" %>
     </li>
 <% end %>
 </ul>
-<%= render "devise/shared/links" %>
+<div class="nav-link">
+  <%= render "devise/shared/links" %>
+</div>
