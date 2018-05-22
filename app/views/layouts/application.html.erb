@@ -13,6 +13,7 @@
 
   <body>
     <div class="content" id="scrabble-main">
+      <div id="login-navbar">Signed In: <%= current_user.email %></div>
       <% flash.each do |name, msg| %>
         <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
       <% end %>
