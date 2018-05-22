@@ -4,7 +4,7 @@ class ScrabblesController < ApplicationController
   before_action :set_scrabble, only: [:show]
 
   def index
-    @scrabbles = Scrabble.all
+    @scrabbles = Scrabble.all.reorder(updated_at: :DESC)
   end
 
   def new
