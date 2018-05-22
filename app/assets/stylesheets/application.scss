@@ -937,4 +937,49 @@ label.triple-letter-checkbox-label {
             }
         }
     }
+
+    #new-user-input-text
+    {
+        width: 100%;
+        padding: 0.7vw 1.2vw;
+
+        color: #427a63;
+        border: 1px solid #74b69a;
+        border-radius: 10px;
+        background-color: #a4e1c7;
+        font-size: 4vw;
+    }
+
+    div.new-user-input
+    {
+        font-size: 4vw;
+        font-weight: 350;
+
+        margin-right: 1.5vw;
+        margin-left: 1.5vw;
+    }
+
+    input[type=submit]#bottom-btn {
+        background-color: #427a63;
+        border-radius: 10px;
+        color: #fff;
+        font-size: 4vw;
+        padding: 1vw 1vw;
+        width: 40vw; }
+
+    input[type=submit]#bottom-btn-pw-reset {
+        background-color: #427a63;
+        border-radius: 10px;
+        color: #fff;
+        font-size: 4vw;
+        padding: 1% 1%;
+        width: 80vw; }
+
+    input[type=submit]#bottom-btn-change-pw {
+        background-color: #427a63;
+        border-radius: 10px;
+        color: #fff;
+        font-size: 4vw;
+        padding: 1% 1%;
+        width: 60vw; }
 }
