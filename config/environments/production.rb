@@ -62,7 +62,7 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "scrabble-scoreboard_#{Rails.env}"
   config.action_mailer.perform_caching = false
 
-  config.action_mailer.default_url_options = { host: 'http://ec2-52-62-134-226.ap-southeast-2.compute.amazonaws.com' }
+  config.action_mailer.default_url_options = { host: 'https://landonkoo.com' }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
