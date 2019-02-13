@@ -5,7 +5,7 @@ This app assists you to track scores and lists of words when playing the beloved
 <br>
 The app has been deployed in the AWS and you can try it by going to:
 <br>
-https://landonkoo.com/scrabble-scoreboard/ (sign up required)
+https://landonkoo.com (sign up required)
 <br>
 <br>
 
