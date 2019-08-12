@@ -5,15 +5,14 @@
         Login
       </div>
 
-    
       <div class="new-user-input">
         <%= f.label :email %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", id: "new-user-input-text" %>
+        <%= f.email_field :email, required: true,autofocus: true, autocomplete: "email", id: "new-user-input-text" %>
       </div>
 
       <div class="new-user-input">
         <%= f.label :password %>
-        <%= f.password_field :password, autocomplete: "off", id: "new-user-input-text" %>
+        <%= f.password_field :password, required: true, autocomplete: "off", id: "new-user-input-text" %>
       </div>
 
       <% if devise_mapping.rememberable? -%>
