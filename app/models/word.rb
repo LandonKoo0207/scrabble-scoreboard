@@ -4,7 +4,7 @@ class Word < ApplicationRecord
   belongs_to :player
 
   validates :word, format: { with: /\A[a-zA-Z]+\z/, message: 'Only letters are allowed.' }, unless: :skip_validations
-  validates :word, presence: true, length: { minimum: 2, message: 'Word must be at least 2 \
+  validates :word, presence: true, length: { minimum: 2, message: 'Word must be at least 2 
                                            characters long.' }, unless: :skip_validations
   validates_presence_of :existing_letter, message: "At least 1 \"Alreay Exists?\" letter must be checked.\n \
                                           A new word cannot be created on its own unless it's the \
@@ -38,7 +38,6 @@ class Word < ApplicationRecord
               'K': 5, 'L': 1, 'M': 3, 'N': 1, 'O': 1, 'P': 3, 'Q': 10, 'R': 1, 'S': 1, 'T': 1, \
               'U': 1, 'V': 4, 'W': 4, 'X': 8, 'Y': 4, 'Z': 10 }
     s = 0
-    puts "word: #{self[:word]}, double_letter: #{self[:double_letter]}, score: #{self[:score]}"
     self[:word].each_char.with_index do |char, i|
       s += if self[:double_letter].include? i + 1
              score[char.upcase.to_sym] * 2

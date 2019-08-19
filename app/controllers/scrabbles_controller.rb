@@ -16,7 +16,7 @@ class ScrabblesController < ApplicationController
     @scrabble = @user.scrabbles.create(scrabble_params)
 
     if @scrabble.save
-      flash[:success] = "Let's play Scabble!"
+      flash[:success] = "Let's play Scrabble!"
       redirect_to new_scrabble_player_path(@scrabble.id)
     else
       @scrabble.errors.each do |name, msg|
