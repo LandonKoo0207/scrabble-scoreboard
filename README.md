@@ -3,11 +3,6 @@
 This app assists you to track scores and lists of words when playing the beloved word-building board game Scrabble!
 
 <br>
-The app has been deployed in the AWS and you can try it by going to:
-<br>
-https://landonkoo.com (sign up required)
-<br>
-<br>
 
 # Scrabble
 For people who don't what Scrabble is, it is simply put, the crossword puzzle-like boardgame illustrated in the image below:
